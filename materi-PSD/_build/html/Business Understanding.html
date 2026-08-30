@@ -500,14 +500,14 @@ Pada penelitian ini, polutan yang diamati adalah Nitrogen Dioksida (NO₂). NO�
 </section>
 <section id="tampilan-parameter-no2">
 <h3>Tampilan Parameter NO₂<a class="headerlink" href="#tampilan-parameter-no2" title="Link to this heading">#</a></h3>
-<p><img alt="gambar1" src="https://hackmd.io/_uploads/BkvwO-MuGe.png" /></p>
+<p><img alt="gambar1" src="gambar1.png" /></p>
 <p><strong>Gambar 1.</strong> Tampilan parameter Nitrogen Dioksida (NO₂) pada Copernicus Data Space.</p>
 <p>Berdasarkan Gambar 1, parameter yang digunakan dalam penelitian adalah <strong>Nitrogen Dioksida (NO₂)</strong> dengan jenis data <strong>Tropospheric NO₂ Column</strong>. Data ditampilkan dalam bentuk peta dengan gradasi warna yang menunjukkan variasi nilai NO₂. Nilai pada legenda dinyatakan dalam satuan <strong>mol/m²</strong>.</p>
 <p>Parameter tersebut digunakan untuk mengamati perubahan dan persebaran NO₂ pada wilayah penelitian selama periode pengamatan yang telah ditentukan.</p>
 </section>
 <section id="penentuan-wilayah-pengamatan">
 <h3>Penentuan Wilayah Pengamatan<a class="headerlink" href="#penentuan-wilayah-pengamatan" title="Link to this heading">#</a></h3>
-<p><img alt="gambar2" src="https://hackmd.io/_uploads/SyQq_bzdfx.png" /></p>
+<p><img alt="gambar2" src="gambar2.png" /></p>
 <p><strong>Gambar 2.</strong> Penentuan Area of Interest (AOI) untuk pengambilan data NO₂ di wilayah Biak Kota, Papua, Indonesia.</p>
 <p>Pada Gambar 2, wilayah pengamatan ditentukan menggunakan <strong>Area of Interest (AOI)</strong> berbentuk polygon pada Copernicus Data Space. AOI digunakan untuk membatasi wilayah pengambilan data sehingga data yang diperoleh sesuai dengan wilayah penelitian.</p>
 <p>Berdasarkan tampilan pada Copernicus Data Space, wilayah AOI yang ditentukan memiliki luas sekitar <strong>15,35 km²</strong>. Selain itu, pada pengaturan visualisasi terdapat parameter <strong>kualitas data minimum sebesar 50</strong>.</p>
@@ -516,7 +516,7 @@ Pada penelitian ini, polutan yang diamati adalah Nitrogen Dioksida (NO₂). NO�
 <section id="pembuatan-area-of-interest-aoi">
 <h3>Pembuatan Area of Interest (AOI)<a class="headerlink" href="#pembuatan-area-of-interest-aoi" title="Link to this heading">#</a></h3>
 <p>Untuk menentukan wilayah pengamatan secara lebih spesifik, dibuat <strong>Area of Interest (AOI)</strong> berbentuk polygon yang mencakup wilayah Biak Kota. Polygon tersebut kemudian digunakan sebagai batas wilayah dalam proses pengambilan data NO₂.</p>
-<p><img alt="gambar3" src="https://hackmd.io/_uploads/Hy76dbMuze.png" /></p>
+<p><img alt="gambar3" src="gambar3.png" /></p>
 <p><strong>Gambar 3.</strong> Polygon Area of Interest (AOI) wilayah Biak Kota dalam format GeoJSON.</p>
 <p>Polygon yang dibuat memiliki koordinat geografis berupa <strong>longitude dan latitude</strong> yang menjadi batas wilayah pengamatan. Data koordinat tersebut digunakan untuk menentukan area yang akan diamati pada proses pengambilan data NO₂ dari Copernicus Data Space.</p>
 </section>
@@ -592,7 +592,7 @@ Pada penelitian ini, polutan yang diamati adalah Nitrogen Dioksida (NO₂). NO�
 <p>Data Nitrogen Dioksida (NO₂) divisualisasikan dalam bentuk peta interaktif menggunakan library <strong>Folium</strong>. Peta menampilkan wilayah <strong>Biak Kota, Papua, Indonesia</strong> berdasarkan <strong>Area of Interest (AOI)</strong> yang telah dibuat sebelumnya menggunakan <a class="reference external" href="http://geojson.io">geojson.io</a>.</p>
 <p>Pada peta ditampilkan batas wilayah AOI Biak Kota serta informasi hasil pengolahan data NO₂, meliputi nilai rata-rata, minimum, maksimum, dan jumlah observasi. Data yang digunakan merupakan data <strong>Tropospheric NO₂ Column</strong> dari <strong>Copernicus Sentinel-5P/TROPOMI</strong> dengan satuan <strong>mol/m²</strong>.</p>
 <p>Visualisasi ini digunakan untuk memberikan gambaran mengenai wilayah pengamatan dan informasi nilai Nitrogen Dioksida (NO₂) selama periode pengamatan <strong>24 Agustus 2025 sampai 24 Agustus 2026</strong>.</p>
-<p><img alt="gambar4" src="https://hackmd.io/_uploads/SJXeFZfOGx.jpg" /></p>
+<p><img alt="gambar4" src="gambar4.jpeg" /></p>
 <p><strong>Gambar 4.</strong> Visualisasi peta interaktif wilayah pengamatan dan informasi Nitrogen Dioksida (NO₂) di Biak Kota menggunakan Folium.</p>
 </section>
 <section id="b-visualisasi-data-grafik">
@@ -600,7 +600,7 @@ Pada penelitian ini, polutan yang diamati adalah Nitrogen Dioksida (NO₂). NO�
 <p>Data Nitrogen Dioksida (NO₂) divisualisasikan dalam bentuk grafik untuk melihat perubahan nilai NO₂ berdasarkan waktu selama periode pengamatan <strong>24 Agustus 2025 sampai 24 Agustus 2026</strong>. Grafik menggunakan nilai <strong>rata-rata (mean) Tropospheric NO₂ Column</strong> dari data Copernicus Sentinel-5P/TROPOMI dengan satuan <strong>mol/m²</strong>.</p>
 <p>Visualisasi grafik digunakan untuk mengetahui pola perubahan nilai NO₂ dari waktu ke waktu di wilayah <strong>Biak Kota, Papua, Indonesia</strong>. Selain nilai rata-rata, grafik juga menampilkan nilai maksimum dan minimum selama periode pengamatan sebagai gambaran variasi nilai NO₂.</p>
 <p>Hasil pengolahan data yang digunakan dalam pembuatan grafik juga disimpan dalam format <strong>CSV</strong> sehingga dapat digunakan untuk proses analisis dan pemeriksaan data selanjutnya.</p>
-<p><img alt="gambar5" src="https://hackmd.io/_uploads/r1SJKbMOGe.jpg" /></p>
+<p><img alt="gambar5" src="gambar5.jpeg" /></p>
 <p><strong>Gambar 5.</strong> Grafik perubahan rata-rata Nitrogen Dioksida (NO₂) di wilayah Biak Kota selama periode 24 Agustus 2025 sampai 24 Agustus 2026.</p>
 </section>
 <section id="c-pemeriksaan-data">
