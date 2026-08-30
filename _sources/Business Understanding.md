@@ -42,7 +42,8 @@ Data yang dikumpulkan berfokus pada wilayah **Biak Kota, Papua, Indonesia** deng
 
 ### Tampilan Parameter NO₂
 
-![Tampilan Nitrogen Dioksida](https://hackmd.io/_uploads/r1NsyYZOGl.png)
+![gambar1](https://hackmd.io/_uploads/BkvwO-MuGe.png)
+
 
 **Gambar 1.** Tampilan parameter Nitrogen Dioksida (NO₂) pada Copernicus Data Space.
 
@@ -52,7 +53,8 @@ Parameter tersebut digunakan untuk mengamati perubahan dan persebaran NO₂ pada
 
 ### Penentuan Wilayah Pengamatan
 
-![Cuplikan layar 2026-08-30 170430](https://hackmd.io/_uploads/rylFbYbdfe.png)
+![gambar2](https://hackmd.io/_uploads/SyQq_bzdfx.png)
+
 
 
 **Gambar 2.** Penentuan Area of Interest (AOI) untuk pengambilan data NO₂ di wilayah Biak Kota, Papua, Indonesia.
@@ -67,7 +69,8 @@ Dengan adanya AOI tersebut, pengambilan data NO₂ difokuskan pada wilayah **Bia
 
 Untuk menentukan wilayah pengamatan secara lebih spesifik, dibuat **Area of Interest (AOI)** berbentuk polygon yang mencakup wilayah Biak Kota. Polygon tersebut kemudian digunakan sebagai batas wilayah dalam proses pengambilan data NO₂.
 
-![Cuplikan layar 2026-08-30 172603](https://hackmd.io/_uploads/HyRiSKZufl.png)
+![gambar3](https://hackmd.io/_uploads/Hy76dbMuze.png)
+
 
 
 **Gambar 3.** Polygon Area of Interest (AOI) wilayah Biak Kota dalam format GeoJSON.
@@ -156,7 +159,8 @@ Pada peta ditampilkan batas wilayah AOI Biak Kota serta informasi hasil pengolah
 
 Visualisasi ini digunakan untuk memberikan gambaran mengenai wilayah pengamatan dan informasi nilai Nitrogen Dioksida (NO₂) selama periode pengamatan **24 Agustus 2025 sampai 24 Agustus 2026**.
 
-![analisi](https://hackmd.io/_uploads/SkdY5nW_Gg.jpg)
+![gambar4](https://hackmd.io/_uploads/SJXeFZfOGx.jpg)
+
 
 
 **Gambar 4.** Visualisasi peta interaktif wilayah pengamatan dan informasi Nitrogen Dioksida (NO₂) di Biak Kota menggunakan Folium.
@@ -169,7 +173,7 @@ Visualisasi grafik digunakan untuk mengetahui pola perubahan nilai NO₂ dari wa
 
 Hasil pengolahan data yang digunakan dalam pembuatan grafik juga disimpan dalam format **CSV** sehingga dapat digunakan untuk proses analisis dan pemeriksaan data selanjutnya.
 
-![noa2](https://hackmd.io/_uploads/SkhOlpZOGx.jpg)
+![gambar5](https://hackmd.io/_uploads/r1SJKbMOGe.jpg)
 
 
 **Gambar 5.** Grafik perubahan rata-rata Nitrogen Dioksida (NO₂) di wilayah Biak Kota selama periode 24 Agustus 2025 sampai 24 Agustus 2026.
