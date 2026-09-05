@@ -5,3 +5,4 @@ format: jb-book
 root: intro
 chapters:
 - file: Business Understanding
+- file: Pengolahan Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME
