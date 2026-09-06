@@ -104,14 +104,14 @@ Sebanyak **135 baris data berhasil diproses** oleh PostgreSQL.
 
 ### Gambar 1 — Informasi koneksi Aiven PostgreSQL
 
-![psd2](https://hackmd.io/_uploads/B1rXQX9Ofl.png)
+![psd2](psd2.png)
 
 
 *Gambar 1. Informasi koneksi database PostgreSQL pada Aiven.*
 
 ### Gambar 2 — Proses penyimpanan data
 
-![psd1](https://hackmd.io/_uploads/B1fI7XcuGg.png)
+![psd1](psd1.png)
 
 
 *Gambar 2. Proses penyimpanan 135 baris data NO₂ ke dalam tabel `no2_data` pada Aiven PostgreSQL.*
@@ -147,7 +147,7 @@ Apabila koneksi berhasil, node PostgreSQL Connector akan menunjukkan status berh
 
 ### Gambar 3 — Workflow KNIME
 
-![psd3](https://hackmd.io/_uploads/H1k5XX5_fl.png)
+![psd3](psd3.png)
 
 
 *Gambar 3. Workflow pengolahan data yang menghubungkan PostgreSQL Connector, DB Query Reader, dan Statistics pada KNIME.*
@@ -208,7 +208,7 @@ Kolom yang berhasil dibaca adalah:
 
 ### Gambar 4 — Hasil DB Query Reader
 
-![psd4](https://hackmd.io/_uploads/BkJ0X75uzg.png)
+![psd4](psd4.png)
 
 
 *Gambar 4. Hasil pembacaan 135 baris dan 10 kolom data dari tabel `no2_data` menggunakan DB Query Reader pada KNIME.*
@@ -266,7 +266,8 @@ Setelah node **Statistics** berhasil dieksekusi, KNIME menampilkan hasil analisi
 
 ### Gambar 5 — Hasil Statistics
 
-![psd5](https://hackmd.io/_uploads/r1Ab4Q9OMx.png)
+
+![psd5](psd5.png)
 
 
 *Gambar 5. Hasil analisis statistik data NO₂ menggunakan node Statistics pada KNIME.*
