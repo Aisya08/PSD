@@ -135,7 +135,7 @@ koordinat lokasi AOI.
 
 ### 1.6.1 Peta Interaktif Folium
 
-![biak1](biak1.png)
+![biak1](Identification Area of Interest (AOI) - biak1.png)
 
 
 **Gambar 1. Peta interaktif Area of Interest (AOI) Biak Kota menggunakan
@@ -152,7 +152,7 @@ geografis di sekitar Biak Kota dapat terlihat dengan lebih jelas.
 
 ### 1.6.2 Visualisasi Koordinat AOI
 
-![Gambar AOI Biak Kota](Gambar_AOI_Biak_Kota.png)
+![Gambar AOI Biak Kota](Identification Area of Interest (AOI) - Gambar_AOI.png)
 
 
 **Gambar 2. Visualisasi koordinat Area of Interest (AOI) Biak Kota.**
