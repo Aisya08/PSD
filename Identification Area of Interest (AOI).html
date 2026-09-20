@@ -1,0 +1,1811 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Identification Area of Interest (AOI) &#8212; Proyek Sains Data - Aisya</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Identification Area of Interest (AOI)';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Analisis Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME" href="Pengolahan%20Data%20NO%E2%82%82%20Menggunakan%20Aiven%20PostgreSQL%20dan%20KNIME.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/syaa.jpeg" class="logo__image only-light" alt="Proyek Sains Data - Aisya - Home"/>
+    <img src="_static/syaa.jpeg" class="logo__image only-dark pst-js-only" alt="Proyek Sains Data - Aisya - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Proyek Sains Data - Portfolio Materi
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Business%20Understanding.html">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pengolahan%20Data%20NO%E2%82%82%20Menggunakan%20Aiven%20PostgreSQL%20dan%20KNIME.html">Analisis Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Identification Area of Interest (AOI)</a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FIdentification Area of Interest (AOI).html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Identification Area of Interest (AOI).md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Identification Area of Interest (AOI)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Identification Area of Interest (AOI)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">1.1 Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-yang-digunakan">1.2 Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-digunakan">1.3 Library yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuatan-peta-aoi">1.4 Pembuatan Peta AOI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-hasil-peta">1.5 Menyimpan Hasil Peta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-visualisasi-aoi">1.6 Hasil Visualisasi AOI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peta-interaktif-folium">1.6.1 Peta Interaktif Folium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-koordinat-aoi">1.6.2 Visualisasi Koordinat AOI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil">1.7 Interpretasi Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">1.8 Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-dan-pelaporan-outlier">2. Identifikasi dan Pelaporan Outlier</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-outlier-menggunakan-metode-iqr">2.1 Identifikasi Outlier Menggunakan Metode IQR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-identifikasi-outlier">2.2 Hasil Identifikasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-identifikasi-outlier">2.3 Visualisasi Hasil Identifikasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4 Interpretasi Hasil</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">Periode Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil-deteksi-outlier-menggunakan-pyod">3. Perbandingan Hasil Deteksi Outlier Menggunakan PyOD</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-menggunakan-pyod">3.1 Deteksi Outlier Menggunakan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-deteksi-outlier-menggunakan-pyod">3.2 Hasil Deteksi Outlier Menggunakan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tanggal-outlier">3.3 Perbandingan Tanggal Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-perbandingan-iqr-dan-pyod">3.4 Visualisasi Perbandingan IQR dan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-perbandingan">3.5 Interpretasi Perbandingan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan">3.6 Kesimpulan Perbandingan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-data-tsfel-4-polutan">4. Penggabungan Data TSFEL 4 Polutan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-dataset">4.1 Penggabungan Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset-gabungan">4.2 Struktur Dataset Gabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-hasil-penggabungan">4.3 Dataset Hasil Penggabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-penggabungan">4.4 Hasil Penggabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-untuk-proses-clustering">4.5 Persiapan untuk Proses Clustering</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">5. K-Means Clustering</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-k-means-pada-knime">5.1 Proses K-Means pada KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2 Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-data">5.3 Persiapan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-pca">5.4 Proses PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-jumlah-cluster">5.5 Penentuan Jumlah Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-evaluasi-k-means">5.6 Visualisasi Evaluasi K-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering">5.7 Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anggota-cluster">5.8 Anggota Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-1">Cluster 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-2">Cluster 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil-clustering">5.9 Interpretasi Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.10 Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="identification-area-of-interest-aoi">
+<h1>1. Identification Area of Interest (AOI)<a class="headerlink" href="#identification-area-of-interest-aoi" title="Link to this heading">#</a></h1>
+<section id="tujuan">
+<h2>1.1 Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>Identification Area of Interest (AOI) merupakan tahap untuk menentukan
+wilayah geografis yang menjadi lokasi penelitian. Pada tahap ini, lokasi
+penelitian divisualisasikan dalam bentuk peta sehingga wilayah yang
+digunakan dalam proses analisis dapat diketahui dengan jelas.</p>
+<p>Berdasarkan data penelitian yang digunakan, wilayah yang menjadi lokasi
+penelitian adalah <strong>Biak Kota</strong>.</p>
+<p>Visualisasi AOI dilakukan menggunakan <strong>Python dan library Folium</strong>
+dengan menggunakan peta dasar OpenStreetMap.</p>
+</section>
+<hr class="docutils" />
+<section id="data-yang-digunakan">
+<h2>1.2 Data yang Digunakan<a class="headerlink" href="#data-yang-digunakan" title="Link to this heading">#</a></h2>
+<p>Data yang digunakan pada tahap identification AOI berasal dari data
+penelitian yang memiliki informasi wilayah atau daerah pengambilan data.</p>
+<p>Informasi lokasi yang digunakan adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Informasi</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Wilayah Penelitian</p></td>
+<td><p>Biak Kota</p></td>
+</tr>
+<tr class="row-odd"><td><p>Latitude Referensi</p></td>
+<td><p>-1.1767</p></td>
+</tr>
+<tr class="row-even"><td><p>Longitude Referensi</p></td>
+<td><p>136.0820</p></td>
+</tr>
+<tr class="row-odd"><td><p>Library</p></td>
+<td><p>Folium</p></td>
+</tr>
+<tr class="row-even"><td><p>Basemap</p></td>
+<td><p>OpenStreetMap</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>Catatan:</strong> Dataset TSFEL yang digunakan hanya menyimpan nama wilayah
+dan tidak menyimpan koordinat latitude dan longitude sensor. Oleh karena
+itu, koordinat yang digunakan merupakan koordinat referensi Biak Kota,
+bukan koordinat sensor asli.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="library-yang-digunakan">
+<h2>1.3 Library yang Digunakan<a class="headerlink" href="#library-yang-digunakan" title="Link to this heading">#</a></h2>
+<p>Library yang digunakan untuk membuat visualisasi peta adalah <strong>Folium</strong>.</p>
+<p>Folium merupakan library Python yang digunakan untuk membuat peta
+interaktif berbasis Leaflet.</p>
+<p>Install library Folium dengan perintah berikut:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">folium</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="pembuatan-peta-aoi">
+<h2>1.4 Pembuatan Peta AOI<a class="headerlink" href="#pembuatan-peta-aoi" title="Link to this heading">#</a></h2>
+<p>Kode berikut digunakan untuk membuat peta dan menampilkan lokasi
+Biak Kota sebagai Area of Interest (AOI).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+
+<span class="c1"># ==========================================</span>
+<span class="c1"># IDENTIFICATION AREA OF INTEREST (AOI)</span>
+<span class="c1"># BIAK KOTA</span>
+<span class="c1"># ==========================================</span>
+
+<span class="c1"># Koordinat referensi Biak Kota</span>
+<span class="n">latitude</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.1767</span>
+<span class="n">longitude</span> <span class="o">=</span> <span class="mf">136.0820</span>
+
+<span class="c1"># Membuat peta</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">tiles</span><span class="o">=</span><span class="s2">&quot;OpenStreetMap&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Menambahkan marker lokasi AOI</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span>
+    <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;AOI Penelitian: Biak Kota&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Biak Kota&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Menambahkan lingkaran sebagai visualisasi area AOI</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">],</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+    <span class="n">popup</span><span class="o">=</span><span class="s2">&quot;Area AOI Biak Kota&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan peta</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="menyimpan-hasil-peta">
+<h2>1.5 Menyimpan Hasil Peta<a class="headerlink" href="#menyimpan-hasil-peta" title="Link to this heading">#</a></h2>
+<p>Peta yang telah dibuat dapat disimpan dalam bentuk file HTML agar dapat
+dibuka kembali melalui browser.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menyimpan peta</span>
+<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;AOI_Biak_Kota.html&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Peta AOI Biak Kota berhasil dibuat.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hasilnya berupa file:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>AOI_Biak_Kota.html
+</pre></div>
+</div>
+<p>File tersebut dapat dibuka menggunakan browser untuk melihat peta
+interaktif.</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-visualisasi-aoi">
+<h2>1.6 Hasil Visualisasi AOI<a class="headerlink" href="#hasil-visualisasi-aoi" title="Link to this heading">#</a></h2>
+<p>Hasil identification Area of Interest (AOI) divisualisasikan menggunakan
+dua bentuk visualisasi, yaitu peta interaktif menggunakan Folium dan grafik
+koordinat lokasi AOI.</p>
+<section id="peta-interaktif-folium">
+<h3>1.6.1 Peta Interaktif Folium<a class="headerlink" href="#peta-interaktif-folium" title="Link to this heading">#</a></h3>
+<p><img alt="biak1" src="https://hackmd.io/_uploads/B13WD1TYMe.png" /></p>
+<p><strong>Gambar 1. Peta interaktif Area of Interest (AOI) Biak Kota menggunakan
+Folium.</strong></p>
+<p>Pada Gambar 1, marker menunjukkan lokasi referensi <strong>Biak Kota</strong> pada
+peta. Lingkaran berwarna biru digunakan untuk memberikan gambaran area
+sekitar titik AOI dengan radius 5 km.</p>
+<p>Peta menggunakan <strong>OpenStreetMap</strong> sebagai basemap sehingga kondisi
+geografis di sekitar Biak Kota dapat terlihat dengan lebih jelas.</p>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-koordinat-aoi">
+<h3>1.6.2 Visualisasi Koordinat AOI<a class="headerlink" href="#visualisasi-koordinat-aoi" title="Link to this heading">#</a></h3>
+<p><img alt="Gambar_AOI_Biak_Kota" src="https://hackmd.io/_uploads/H1izDkaYGl.png" /></p>
+<p><strong>Gambar 2. Visualisasi koordinat Area of Interest (AOI) Biak Kota.</strong></p>
+<p>Pada Gambar 2, titik menunjukkan posisi koordinat referensi yang digunakan
+sebagai pusat AOI Biak Kota. Posisi titik berada pada:</p>
+<ul class="simple">
+<li><p><strong>Latitude:</strong> -1.1767</p></li>
+<li><p><strong>Longitude:</strong> 136.0820</p></li>
+</ul>
+<p>Sumbu horizontal menunjukkan nilai <strong>longitude</strong>, sedangkan sumbu vertikal
+menunjukkan nilai <strong>latitude</strong>. Titik biru pada grafik menunjukkan lokasi
+referensi AOI penelitian.</p>
+<p>Visualisasi ini digunakan sebagai pendukung untuk menunjukkan posisi
+koordinat AOI secara lebih sederhana dan terstruktur.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="interpretasi-hasil">
+<h2>1.7 Interpretasi Hasil<a class="headerlink" href="#interpretasi-hasil" title="Link to this heading">#</a></h2>
+<p>Berdasarkan kedua visualisasi tersebut, wilayah penelitian yang digunakan
+sebagai Area of Interest (AOI) adalah <strong>Biak Kota</strong>.</p>
+<p>Peta Folium memberikan gambaran lokasi AOI berdasarkan kondisi geografis,
+sedangkan grafik koordinat menunjukkan posisi titik referensi berdasarkan
+nilai latitude dan longitude.</p>
+<p>Dengan demikian, identification AOI telah menghasilkan lokasi yang dapat
+digunakan sebagai dasar untuk proses analisis data pada tahap berikutnya.</p>
+<blockquote>
+<div><p><strong>Catatan:</strong> Koordinat yang digunakan merupakan koordinat referensi
+Biak Kota karena dataset yang tersedia tidak memiliki koordinat sensor
+asli. Lingkaran 5 km pada peta merupakan visualisasi area dan bukan
+batas administratif resmi Biak Kota.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>1.8 Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Identification Area of Interest (AOI) telah dilakukan menggunakan library
+Folium dan visualisasi koordinat. Berdasarkan data penelitian, wilayah
+yang digunakan adalah <strong>Biak Kota</strong> dengan koordinat referensi
+<strong>latitude -1.1767 dan longitude 136.0820</strong>.</p>
+<p>Peta interaktif dan grafik koordinat memberikan gambaran mengenai lokasi
+AOI yang digunakan dalam penelitian. Hasil identification ini selanjutnya
+digunakan sebagai dasar untuk melakukan analisis outlier pada data
+penelitian.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="identifikasi-dan-pelaporan-outlier">
+<h1>2. Identifikasi dan Pelaporan Outlier<a class="headerlink" href="#identifikasi-dan-pelaporan-outlier" title="Link to this heading">#</a></h1>
+<section id="identifikasi-outlier-menggunakan-metode-iqr">
+<h2>2.1 Identifikasi Outlier Menggunakan Metode IQR<a class="headerlink" href="#identifikasi-outlier-menggunakan-metode-iqr" title="Link to this heading">#</a></h2>
+<p>Pada tahap ini dilakukan identifikasi data pencilan (<em>outlier</em>) pada data konsentrasi <strong>CH₄ (Metana) di Biak Kota</strong>. Identifikasi outlier dilakukan menggunakan metode <strong>Interquartile Range (IQR)</strong>.</p>
+<p>Metode IQR digunakan untuk menentukan data yang berada di luar batas bawah dan batas atas berdasarkan kuartil pertama (Q1) dan kuartil ketiga (Q3).</p>
+<p>Rumus yang digunakan adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+IQR = Q3 - Q1
+\]</div>
+<p>Kemudian batas bawah dan batas atas ditentukan dengan:</p>
+<div class="math notranslate nohighlight">
+\[
+Batas\ Bawah = Q1 - 1.5 \times IQR
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+Batas\ Atas = Q3 + 1.5 \times IQR
+\]</div>
+<p>Data yang memiliki nilai di bawah batas bawah atau di atas batas atas dikategorikan sebagai <strong>outlier</strong>.</p>
+<p>Pada dataset CH₄ Biak Kota, proses identifikasi outlier dilakukan berdasarkan kolom <code class="docutils literal notranslate"><span class="pre">CH4_final</span></code>, sedangkan hasil identifikasi ditandai pada kolom <code class="docutils literal notranslate"><span class="pre">outlier_IQR</span></code>.</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-identifikasi-outlier">
+<h2>2.2 Hasil Identifikasi Outlier<a class="headerlink" href="#hasil-identifikasi-outlier" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil identifikasi menggunakan metode IQR, ditemukan sebanyak:</p>
+<blockquote>
+<div><p><strong>36 data teridentifikasi sebagai outlier.</strong></p>
+</div></blockquote>
+<p>Data yang teridentifikasi sebagai outlier berada pada periode:</p>
+<blockquote>
+<div><p><strong>20 Juli 2026 – 24 Agustus 2026</strong></p>
+</div></blockquote>
+<p>Berikut adalah daftar tanggal yang teridentifikasi sebagai outlier:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No</p></th>
+<th class="head"><p>Tanggal</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>20-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p>21-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p>22-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p>23-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p>24-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p>25-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td><p>26-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td><p>27-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td><p>28-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>10</p></td>
+<td><p>29-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>11</p></td>
+<td><p>30-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>12</p></td>
+<td><p>31-07-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>13</p></td>
+<td><p>01-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>14</p></td>
+<td><p>02-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>15</p></td>
+<td><p>03-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>16</p></td>
+<td><p>04-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>17</p></td>
+<td><p>05-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>18</p></td>
+<td><p>06-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>19</p></td>
+<td><p>07-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>20</p></td>
+<td><p>08-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>21</p></td>
+<td><p>09-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>22</p></td>
+<td><p>10-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>23</p></td>
+<td><p>11-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>24</p></td>
+<td><p>12-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>25</p></td>
+<td><p>13-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>26</p></td>
+<td><p>14-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>27</p></td>
+<td><p>15-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>28</p></td>
+<td><p>16-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>29</p></td>
+<td><p>17-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>30</p></td>
+<td><p>18-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>31</p></td>
+<td><p>19-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>32</p></td>
+<td><p>20-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>33</p></td>
+<td><p>21-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>34</p></td>
+<td><p>22-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>35</p></td>
+<td><p>23-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>36</p></td>
+<td><p>24-08-2026</p></td>
+<td><p>Outlier</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-hasil-identifikasi-outlier">
+<h2>2.3 Visualisasi Hasil Identifikasi Outlier<a class="headerlink" href="#visualisasi-hasil-identifikasi-outlier" title="Link to this heading">#</a></h2>
+<p>Untuk memperjelas hasil identifikasi, dibuat grafik hubungan antara <strong>tanggal pengamatan</strong> dengan <strong>nilai CH₄ final</strong>. Grafik digunakan untuk melihat pola data sekaligus mengetahui posisi data yang teridentifikasi sebagai outlier berdasarkan metode IQR.</p>
+<p><strong>Masukkan grafik hasil analisis pada bagian berikut:</strong></p>
+<p><img alt="Grafik_Outlier_CH4_IQR_Biak_Kota" src="https://hackmd.io/_uploads/ryYUq1pKMl.png" /></p>
+<blockquote>
+<div><p><strong>Gambar 3. Identifikasi Outlier CH₄ Menggunakan Metode IQR di Biak Kota</strong></p>
+</div></blockquote>
+<p><strong>Catatan:</strong> Grafik di atas menunjukkan data CH₄ berdasarkan waktu pengamatan. Titik yang teridentifikasi sebagai outlier berdasarkan metode IQR ditampilkan secara berbeda dari data normal.</p>
+<p>Berdasarkan visualisasi tersebut, outlier terlihat terkonsentrasi pada periode akhir pengamatan, yaitu mulai <strong>20 Juli 2026 hingga 24 Agustus 2026</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2>2.4 Interpretasi Hasil<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil analisis menggunakan metode IQR, terdapat <strong>36 data CH₄ yang ditandai sebagai outlier</strong> dari keseluruhan data pengamatan.</p>
+<p>Outlier tersebut muncul secara berurutan pada periode <strong>20 Juli 2026 sampai 24 Agustus 2026</strong>. Kondisi ini menunjukkan adanya periode tertentu pada data CH₄ yang memiliki nilai berbeda dari pola distribusi data secara umum berdasarkan batas IQR.</p>
+<p>Perlu diperhatikan bahwa beberapa data pada periode tersebut sebelumnya memiliki status <strong>Missing</strong> pada data CH₄ asli dan telah melalui proses imputasi. Oleh karena itu, hasil outlier pada tahap ini merupakan outlier berdasarkan <strong>data CH₄ final setelah proses pengolahan</strong>, bukan berarti seluruh nilai tersebut merupakan pengukuran asli yang secara langsung tercatat sebagai pencilan.</p>
+<p>Hasil identifikasi menggunakan IQR ini selanjutnya digunakan sebagai dasar untuk <strong>membandingkan hasil deteksi outlier menggunakan metode lain, yaitu PyOD</strong>.</p>
+<section id="periode-data">
+<h3>Periode Data<a class="headerlink" href="#periode-data" title="Link to this heading">#</a></h3>
+<p>Data CH₄ yang digunakan dalam analisis memiliki periode pengamatan selama satu tahun, yaitu mulai <strong>24 Agustus 2025 sampai 24 Agustus 2026</strong>, dengan total <strong>366 tanggal pengamatan</strong> karena tanggal awal dan tanggal akhir sama-sama termasuk dalam data.</p>
+<p>Dari keseluruhan periode tersebut, metode IQR mengidentifikasi <strong>36 data sebagai outlier</strong>, yang muncul pada periode <strong>20 Juli 2026 sampai 24 Agustus 2026</strong>.</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="perbandingan-hasil-deteksi-outlier-menggunakan-pyod">
+<h1>3. Perbandingan Hasil Deteksi Outlier Menggunakan PyOD<a class="headerlink" href="#perbandingan-hasil-deteksi-outlier-menggunakan-pyod" title="Link to this heading">#</a></h1>
+<section id="deteksi-outlier-menggunakan-pyod">
+<h2>3.1 Deteksi Outlier Menggunakan PyOD<a class="headerlink" href="#deteksi-outlier-menggunakan-pyod" title="Link to this heading">#</a></h2>
+<p>Setelah dilakukan identifikasi outlier menggunakan metode IQR, tahap selanjutnya adalah melakukan perbandingan menggunakan library <strong>PyOD (Python Outlier Detection)</strong>.</p>
+<p>PyOD merupakan library Python yang menyediakan berbagai algoritma untuk mendeteksi data pencilan (<em>outlier detection</em>). Pada penelitian ini digunakan metode <strong>ECOD (Empirical Cumulative Distribution Functions)</strong> yang tersedia pada PyOD.</p>
+<p>ECOD digunakan untuk menghasilkan nilai <em>outlier score</em> berdasarkan distribusi empiris dari data. Data dengan skor anomali yang lebih tinggi menunjukkan data yang lebih tidak umum dibandingkan data lainnya.</p>
+<p>Pada tahap ini, data yang digunakan adalah data <strong>CH₄ final di Biak Kota</strong> yang sebelumnya telah melalui proses pengolahan data.</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-deteksi-outlier-menggunakan-pyod">
+<h2>3.2 Hasil Deteksi Outlier Menggunakan PyOD<a class="headerlink" href="#hasil-deteksi-outlier-menggunakan-pyod" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil penerapan metode <strong>PyOD-ECOD</strong>, diperoleh sebanyak:</p>
+<blockquote>
+<div><p><strong>36 data teridentifikasi sebagai outlier.</strong></p>
+</div></blockquote>
+<p>Outlier yang terdeteksi oleh PyOD berada pada periode:</p>
+<blockquote>
+<div><p><strong>20 Juli 2026 – 24 Agustus 2026</strong></p>
+</div></blockquote>
+<p>Hasil tersebut kemudian dibandingkan dengan hasil identifikasi menggunakan metode IQR.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metode Deteksi</p></th>
+<th class="head text-right"><p>Jumlah Outlier</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IQR</p></td>
+<td class="text-right"><p>36</p></td>
+</tr>
+<tr class="row-odd"><td><p>PyOD (ECOD)</p></td>
+<td class="text-right"><p>36</p></td>
+</tr>
+<tr class="row-even"><td><p>Terdeteksi oleh kedua metode</p></td>
+<td class="text-right"><p>36</p></td>
+</tr>
+<tr class="row-odd"><td><p>IQR saja</p></td>
+<td class="text-right"><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>PyOD saja</p></td>
+<td class="text-right"><p>0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Berdasarkan tabel tersebut, kedua metode menghasilkan jumlah outlier yang sama, yaitu <strong>36 data</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="perbandingan-tanggal-outlier">
+<h2>3.3 Perbandingan Tanggal Outlier<a class="headerlink" href="#perbandingan-tanggal-outlier" title="Link to this heading">#</a></h2>
+<p>Hasil perbandingan menunjukkan bahwa seluruh data yang ditandai sebagai outlier oleh IQR juga ditandai sebagai outlier oleh PyOD-ECOD.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No</p></th>
+<th class="head"><p>Tanggal</p></th>
+<th class="head text-center"><p>IQR</p></th>
+<th class="head text-center"><p>PyOD (ECOD)</p></th>
+<th class="head"><p>Hasil</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>20-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p>21-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p>22-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p>23-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p>24-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p>25-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td><p>26-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td><p>27-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td><p>28-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>10</p></td>
+<td><p>29-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>11</p></td>
+<td><p>30-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>12</p></td>
+<td><p>31-07-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>13</p></td>
+<td><p>01-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>14</p></td>
+<td><p>02-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>15</p></td>
+<td><p>03-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>16</p></td>
+<td><p>04-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>17</p></td>
+<td><p>05-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>18</p></td>
+<td><p>06-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>19</p></td>
+<td><p>07-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>20</p></td>
+<td><p>08-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>21</p></td>
+<td><p>09-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>22</p></td>
+<td><p>10-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>23</p></td>
+<td><p>11-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>24</p></td>
+<td><p>12-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>25</p></td>
+<td><p>13-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>26</p></td>
+<td><p>14-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>27</p></td>
+<td><p>15-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>28</p></td>
+<td><p>16-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>29</p></td>
+<td><p>17-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>30</p></td>
+<td><p>18-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>31</p></td>
+<td><p>19-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>32</p></td>
+<td><p>20-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>33</p></td>
+<td><p>21-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>34</p></td>
+<td><p>22-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>35</p></td>
+<td><p>23-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>36</p></td>
+<td><p>24-08-2026</p></td>
+<td class="text-center"><p>✓</p></td>
+<td class="text-center"><p>✓</p></td>
+<td><p>Keduanya</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-perbandingan-iqr-dan-pyod">
+<h2>3.4 Visualisasi Perbandingan IQR dan PyOD<a class="headerlink" href="#visualisasi-perbandingan-iqr-dan-pyod" title="Link to this heading">#</a></h2>
+<p>Untuk memperjelas hasil perbandingan, dibuat grafik yang menampilkan hasil deteksi outlier menggunakan metode IQR dan PyOD-ECOD.</p>
+<p><strong>Masukkan grafik hasil perbandingan pada bagian berikut:</strong></p>
+<p><img alt="Grafik_Perbandingan_IQR_vs_PyOD_CH4_Biak_Kota" src="https://hackmd.io/_uploads/ByZaiy6tMe.png" /></p>
+<blockquote>
+<div><p><strong>Gambar 4. Perbandingan Deteksi Outlier CH₄ Menggunakan IQR dan PyOD-ECOD</strong></p>
+</div></blockquote>
+<p>Berdasarkan grafik tersebut, posisi data yang teridentifikasi sebagai outlier oleh metode IQR dan PyOD berada pada periode yang sama. Hal ini menunjukkan bahwa kedua metode memberikan hasil deteksi yang konsisten pada dataset CH₄ Biak Kota.</p>
+</section>
+<hr class="docutils" />
+<section id="interpretasi-perbandingan">
+<h2>3.5 Interpretasi Perbandingan<a class="headerlink" href="#interpretasi-perbandingan" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil perbandingan, metode IQR dan PyOD-ECOD sama-sama mendeteksi <strong>36 data outlier</strong>.</p>
+<p>Seluruh 36 data yang teridentifikasi oleh IQR juga teridentifikasi oleh PyOD-ECOD. Dengan demikian, tidak terdapat data yang hanya terdeteksi oleh IQR maupun data yang hanya terdeteksi oleh PyOD.</p>
+<p>Hasil tersebut menunjukkan adanya kesamaan hasil deteksi pada dataset CH₄ Biak Kota. Kedua metode menunjukkan periode outlier yang sama, yaitu mulai <strong>20 Juli 2026 hingga 24 Agustus 2026</strong>.</p>
+<p>Perbandingan ini digunakan untuk memastikan bahwa data pencilan yang ditemukan pada tahap sebelumnya tidak hanya muncul berdasarkan satu metode deteksi saja, tetapi juga teridentifikasi menggunakan metode deteksi outlier lainnya.</p>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan-perbandingan">
+<h2>3.6 Kesimpulan Perbandingan<a class="headerlink" href="#kesimpulan-perbandingan" title="Link to this heading">#</a></h2>
+<p>Dari hasil pengujian dapat dirangkum sebagai berikut:</p>
+<ul class="simple">
+<li><p>Metode IQR menghasilkan <strong>36 outlier</strong>.</p></li>
+<li><p>Metode PyOD menggunakan <strong>ECOD menghasilkan 36 outlier</strong>.</p></li>
+<li><p>Sebanyak <strong>36 data terdeteksi oleh kedua metode</strong>.</p></li>
+<li><p>Tidak terdapat outlier yang hanya terdeteksi oleh IQR.</p></li>
+<li><p>Tidak terdapat outlier yang hanya terdeteksi oleh PyOD.</p></li>
+<li><p>Periode outlier berada pada <strong>20 Juli 2026 sampai 24 Agustus 2026</strong>.</p></li>
+</ul>
+<p>Dengan demikian, hasil deteksi outlier pada data CH₄ Biak Kota menunjukkan hasil yang konsisten antara metode IQR dan PyOD-ECOD.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="penggabungan-data-tsfel-4-polutan">
+<h1>4. Penggabungan Data TSFEL 4 Polutan<a class="headerlink" href="#penggabungan-data-tsfel-4-polutan" title="Link to this heading">#</a></h1>
+<section id="penggabungan-dataset">
+<h2>4.1 Penggabungan Dataset<a class="headerlink" href="#penggabungan-dataset" title="Link to this heading">#</a></h2>
+<p>Pada tahap ini dilakukan penggabungan hasil ekstraksi fitur menggunakan <strong>Time Series Feature Extraction Library (TSFEL)</strong> dari seluruh data mahasiswa.</p>
+<p>Data yang digabungkan terdiri dari empat parameter polutan, yaitu:</p>
+<ul class="simple">
+<li><p><strong>CO (Carbon Monoxide)</strong></p></li>
+<li><p><strong>CH₄ (Methane)</strong></p></li>
+<li><p><strong>SO₂ (Sulfur Dioxide)</strong></p></li>
+<li><p><strong>NO₂ (Nitrogen Dioxide)</strong></p></li>
+</ul>
+<p>Setiap polutan memiliki <strong>68 fitur TSFEL</strong> yang telah melalui proses ekstraksi fitur sebelumnya.</p>
+<p>Dengan demikian, jumlah fitur yang digunakan untuk setiap data adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+68 \times 4 = 272\ fitur
+\]</div>
+<p>Selain 272 fitur TSFEL, dataset juga memiliki dua kolom identitas, yaitu <strong>Nama</strong> dan <strong>Daerah</strong>.</p>
+<p>Sehingga total kolom pada dataset gabungan adalah:</p>
+<div class="math notranslate nohighlight">
+\[
+272 + 2 = 274\ kolom
+\]</div>
+<p>Dataset terbaru yang digunakan terdiri dari <strong>19 mahasiswa</strong> dari berbagai wilayah.</p>
+</section>
+<hr class="docutils" />
+<section id="struktur-dataset-gabungan">
+<h2>4.2 Struktur Dataset Gabungan<a class="headerlink" href="#struktur-dataset-gabungan" title="Link to this heading">#</a></h2>
+<p>Struktur dataset yang digunakan adalah sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Komponen</p></th>
+<th class="head text-right"><p>Jumlah</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Jumlah mahasiswa</p></td>
+<td class="text-right"><p>19</p></td>
+</tr>
+<tr class="row-odd"><td><p>Jumlah polutan</p></td>
+<td class="text-right"><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Fitur per polutan</p></td>
+<td class="text-right"><p>68</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total fitur TSFEL</p></td>
+<td class="text-right"><p>272</p></td>
+</tr>
+<tr class="row-even"><td><p>Kolom identitas</p></td>
+<td class="text-right"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total kolom</p></td>
+<td class="text-right"><p>274</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Empat kelompok fitur yang digunakan adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Polutan</p></th>
+<th class="head text-right"><p>Jumlah Fitur</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CO</p></td>
+<td class="text-right"><p>68</p></td>
+</tr>
+<tr class="row-odd"><td><p>CH₄</p></td>
+<td class="text-right"><p>68</p></td>
+</tr>
+<tr class="row-even"><td><p>SO₂</p></td>
+<td class="text-right"><p>68</p></td>
+</tr>
+<tr class="row-odd"><td><p>NO₂</p></td>
+<td class="text-right"><p>68</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total</strong></p></td>
+<td class="text-right"><p><strong>272</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="dataset-hasil-penggabungan">
+<h2>4.3 Dataset Hasil Penggabungan<a class="headerlink" href="#dataset-hasil-penggabungan" title="Link to this heading">#</a></h2>
+<p>Hasil penggabungan data TSFEL menghasilkan satu dataset yang berisi fitur dari keempat polutan untuk setiap mahasiswa.</p>
+<p>Setiap baris merepresentasikan satu mahasiswa dan wilayah penelitian, sedangkan kolom fitur berisi hasil ekstraksi TSFEL dari masing-masing polutan.</p>
+<p>Dataset gabungan yang digunakan adalah:</p>
+<blockquote>
+<div><p><strong><code class="docutils literal notranslate"><span class="pre">data_tsfel_sekelas.xlsx</span></code></strong></p>
+</div></blockquote>
+<p>Dataset tersebut terdiri dari <strong>19 data mahasiswa</strong> dengan total <strong>272 fitur TSFEL</strong> yang berasal dari empat jenis polutan.</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-penggabungan">
+<h2>4.4 Hasil Penggabungan<a class="headerlink" href="#hasil-penggabungan" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil penggabungan data terbaru, diperoleh dataset akhir dengan:</p>
+<ul class="simple">
+<li><p><strong>19 data mahasiswa</strong></p></li>
+<li><p><strong>4 jenis polutan</strong></p></li>
+<li><p><strong>68 fitur TSFEL untuk setiap polutan</strong></p></li>
+<li><p><strong>272 fitur TSFEL secara keseluruhan</strong></p></li>
+<li><p><strong>2 kolom identitas</strong>, yaitu Nama dan Daerah</p></li>
+<li><p><strong>274 kolom secara keseluruhan</strong></p></li>
+</ul>
+<p>Dataset telah disusun dalam satu tabel sehingga fitur dari CO, CH₄, SO₂, dan NO₂ dapat digunakan secara bersamaan pada tahap analisis selanjutnya.</p>
+</section>
+<hr class="docutils" />
+<section id="persiapan-untuk-proses-clustering">
+<h2>4.5 Persiapan untuk Proses Clustering<a class="headerlink" href="#persiapan-untuk-proses-clustering" title="Link to this heading">#</a></h2>
+<p>Dataset hasil penggabungan ini selanjutnya digunakan sebagai data masukan untuk proses <strong>K-Means Clustering</strong>.</p>
+<p>Sebelum proses clustering dilakukan, fitur TSFEL akan dipersiapkan agar dapat digunakan oleh algoritma K-Means. Tahapan persiapan meliputi pemeriksaan data, pemilihan fitur numerik, serta normalisasi atau standardisasi fitur apabila diperlukan.</p>
+<p>Hasil dari proses K-Means nantinya digunakan untuk mengelompokkan data berdasarkan kemiripan karakteristik fitur TSFEL dari empat polutan.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="k-means-clustering">
+<h1>5. K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Link to this heading">#</a></h1>
+<section id="proses-k-means-pada-knime">
+<h2>5.1 Proses K-Means pada KNIME<a class="headerlink" href="#proses-k-means-pada-knime" title="Link to this heading">#</a></h2>
+<p>Setelah seluruh data TSFEL dari mahasiswa terkumpul, dilakukan proses clustering menggunakan metode <strong>K-Means</strong> pada KNIME.</p>
+<p>Dataset yang digunakan adalah <strong><code class="docutils literal notranslate"><span class="pre">data_tsfel_sekelas.xlsx</span></code></strong> yang berisi hasil ekstraksi fitur TSFEL dari seluruh mahasiswa.</p>
+<p>Workflow pengolahan data pada KNIME terdiri dari beberapa tahapan, yaitu:</p>
+<ol class="arabic simple">
+<li><p><strong>Excel Reader</strong> untuk membaca dataset TSFEL gabungan.</p></li>
+<li><p><strong>K-Means</strong> untuk melakukan clustering secara langsung terhadap data.</p></li>
+<li><p><strong>Table View</strong> untuk melihat hasil clustering.</p></li>
+<li><p><strong>PCA (Principal Component Analysis)</strong> untuk melakukan reduksi dimensi.</p></li>
+<li><p><strong>Table View</strong> untuk melihat hasil data setelah proses PCA.</p></li>
+<li><p><strong>K-Means</strong> untuk melakukan clustering terhadap data hasil PCA.</p></li>
+</ol>
+<p>Alur workflow yang digunakan pada KNIME terdiri dari dua jalur proses. Jalur pertama menggunakan <strong>Excel Reader → K-Means → Table View</strong>, sedangkan jalur kedua menggunakan <strong>Excel Reader → PCA → Table View</strong> dan hasil PCA kemudian digunakan sebagai input untuk <strong>K-Means</strong>.</p>
+<p>Alur workflow yang digunakan adalah:</p>
+<p><img alt="psdd" src="https://hackmd.io/_uploads/Skz56L6FMg.png" /></p>
+<p>Gambar menunjukkan alur pengolahan data mulai dari <strong>Excel Reader</strong>, kemudian data diteruskan ke proses K-Means secara langsung dan ke proses PCA. Hasil PCA selanjutnya digunakan sebagai input untuk proses K-Means.</p>
+</section>
+<section id="id2">
+<h2>5.2 Data yang Digunakan<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Dataset yang digunakan pada proses clustering adalah:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">data_tsfel_sekelas.xlsx</span></code></strong></p>
+<p>Dataset tersebut terdiri dari:</p>
+<ul class="simple">
+<li><p><strong>19 mahasiswa</strong></p></li>
+<li><p><strong>4 jenis polutan</strong></p></li>
+<li><p><strong>68 fitur TSFEL untuk setiap polutan</strong></p></li>
+<li><p><strong>272 fitur TSFEL secara keseluruhan</strong></p></li>
+<li><p><strong>2 kolom identitas</strong>, yaitu Nama dan Daerah</p></li>
+<li><p><strong>274 kolom secara keseluruhan</strong></p></li>
+</ul>
+<p>Empat jenis polutan yang digunakan adalah:</p>
+<ul class="simple">
+<li><p>CO (<em>Carbon Monoxide</em>)</p></li>
+<li><p>CH₄ (<em>Methane</em>)</p></li>
+<li><p>SO₂ (<em>Sulfur Dioxide</em>)</p></li>
+<li><p>NO₂ (<em>Nitrogen Dioxide</em>)</p></li>
+</ul>
+<p>Jumlah fitur TSFEL dihitung sebagai:</p>
+<div class="math notranslate nohighlight">
+\[
+68 \times 4 = 272\ fitur
+\]</div>
+<p>Dengan demikian, dataset yang digunakan dalam proses clustering memiliki <strong>272 fitur numerik TSFEL</strong> dari empat jenis polutan.</p>
+</section>
+<hr class="docutils" />
+<section id="persiapan-data">
+<h2>5.3 Persiapan Data<a class="headerlink" href="#persiapan-data" title="Link to this heading">#</a></h2>
+<p>Sebelum proses clustering dilakukan, data TSFEL digunakan sebagai fitur numerik untuk proses K-Means.</p>
+<p>Kolom identitas seperti <strong>Nama</strong> dan <strong>Daerah</strong> digunakan sebagai informasi identitas data dan tidak digunakan sebagai dasar perhitungan jarak dalam clustering.</p>
+<p>Data fitur kemudian digunakan sebagai input pada proses K-Means dan PCA sesuai dengan workflow yang telah dibuat pada KNIME.</p>
+</section>
+<section id="proses-pca">
+<h2>5.4 Proses PCA<a class="headerlink" href="#proses-pca" title="Link to this heading">#</a></h2>
+<p>Selain melakukan K-Means secara langsung, workflow juga menggunakan <strong>Principal Component Analysis (PCA)</strong>.</p>
+<p>PCA digunakan untuk melakukan reduksi dimensi terhadap fitur TSFEL yang memiliki jumlah fitur cukup banyak.</p>
+<p>Alur proses PCA yang digunakan dalam workflow adalah:</p>
+<p><strong>Excel Reader → PCA → Table View → K-Means</strong></p>
+<p>Pada workflow ini, hasil PCA digunakan sebagai input untuk proses clustering K-Means berikutnya.</p>
+<p>Jumlah dimensi PCA disesuaikan dengan arahan tugas, yaitu menggunakan dimensi berdasarkan jumlah mahasiswa yang tersedia pada dataset.</p>
+<p>Dataset yang digunakan memiliki <strong>19 mahasiswa</strong>, sehingga pengaturan jumlah dimensi PCA akan disesuaikan dengan jumlah tersebut pada tahap konfigurasi PCA di KNIME.</p>
+</section>
+<hr class="docutils" />
+<section id="penentuan-jumlah-cluster">
+<h2>5.5 Penentuan Jumlah Cluster<a class="headerlink" href="#penentuan-jumlah-cluster" title="Link to this heading">#</a></h2>
+<p>Untuk menentukan jumlah cluster yang digunakan pada proses K-Means, dilakukan pengujian beberapa nilai K.</p>
+<p>Nilai K yang diuji adalah <strong>K=2 sampai K=6</strong>.</p>
+<p>Evaluasi dilakukan menggunakan <strong>Silhouette Score</strong>.</p>
+<p>Hasil evaluasi adalah sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>Jumlah Cluster (K)</p></th>
+<th class="head text-right"><p>Silhouette Score</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>2</p></td>
+<td class="text-right"><p><strong>0.4760</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>3</p></td>
+<td class="text-right"><p>0.2070</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>4</p></td>
+<td class="text-right"><p>0.2237</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>5</p></td>
+<td class="text-right"><p>0.1930</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>6</p></td>
+<td class="text-right"><p>0.2449</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Berdasarkan hasil pengujian tersebut, nilai Silhouette Score tertinggi diperoleh pada <strong>K=2</strong>, yaitu sebesar <strong>0.4760</strong>.</p>
+<p>Oleh karena itu, pada analisis ini digunakan:</p>
+<blockquote>
+<div><p><strong>K = 2 cluster</strong></p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="visualisasi-evaluasi-k-means">
+<h2>5.6 Visualisasi Evaluasi K-Means<a class="headerlink" href="#visualisasi-evaluasi-k-means" title="Link to this heading">#</a></h2>
+<p>Untuk memperlihatkan perbandingan nilai Silhouette Score pada setiap jumlah cluster yang diuji, digunakan grafik evaluasi berikut.</p>
+<p><strong>Gambar 6. Evaluasi jumlah cluster K-Means menggunakan Silhouette Score.</strong></p>
+<p><strong>[MASUKKAN GRAFIK SILHOUETTE K-MEANS DI SINI]</strong></p>
+<p>Berdasarkan grafik tersebut, nilai Silhouette Score tertinggi diperoleh pada <strong>K=2</strong> dengan nilai <strong>0.4760</strong>. Nilai tersebut digunakan sebagai dasar penentuan jumlah cluster pada proses K-Means.</p>
+</section>
+<hr class="docutils" />
+<section id="hasil-clustering">
+<h2>5.7 Hasil Clustering<a class="headerlink" href="#hasil-clustering" title="Link to this heading">#</a></h2>
+<p>Setelah jumlah cluster ditentukan, proses K-Means dilakukan menggunakan <strong>K=2</strong>.</p>
+<p>Hasil clustering menghasilkan dua kelompok data sebagai berikut:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Cluster</p></th>
+<th class="head text-right"><p>Jumlah Data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Cluster 1</p></td>
+<td class="text-right"><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cluster 2</p></td>
+<td class="text-right"><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Total</strong></p></td>
+<td class="text-right"><p><strong>19</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Dari total 19 data mahasiswa, sebanyak <strong>18 data masuk ke Cluster 1</strong>, sedangkan <strong>1 data masuk ke Cluster 2</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="anggota-cluster">
+<h2>5.8 Anggota Cluster<a class="headerlink" href="#anggota-cluster" title="Link to this heading">#</a></h2>
+<section id="cluster-1">
+<h3>Cluster 1<a class="headerlink" href="#cluster-1" title="Link to this heading">#</a></h3>
+<p>Cluster 1 terdiri dari 18 data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No</p></th>
+<th class="head"><p>Nama</p></th>
+<th class="head"><p>Daerah</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>Achmad Saiful Fuadi</p></td>
+<td><p>Labang, Bangkalan</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p>Ahmad Ubaidillah Mappattiro</p></td>
+<td><p>Masalembu</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p>Ahmad soleh majid</p></td>
+<td><p>Socah, Bangkalan</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>4</p></td>
+<td><p>Aisya</p></td>
+<td><p>Biak Kota</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>5</p></td>
+<td><p>Alif Baiatur Ridhwan El Habibie</p></td>
+<td><p>Surabaya, Gubeng</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>6</p></td>
+<td><p>Firman Candra Dwi Nugroho</p></td>
+<td><p>Kraton, Bangkalan</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>7</p></td>
+<td><p>Intan Resti Haslindawati</p></td>
+<td><p>Kadur, Pamekasan</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>8</p></td>
+<td><p>Irwan Dwi Mukhlisin</p></td>
+<td><p>Lamongan kota</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>9</p></td>
+<td><p>Kevin Koligombowo Mangaraja</p></td>
+<td><p>Telukdalam, Nias</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>10</p></td>
+<td><p>Mohammad Andri Firmansyah</p></td>
+<td><p>Trowulan, Mojokerto</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>11</p></td>
+<td><p>Mohammad Waqidi</p></td>
+<td><p>Lenteng</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>12</p></td>
+<td><p>Muhammad Ainul Fuady</p></td>
+<td><p>Gresik, Bungah</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>13</p></td>
+<td><p>Muhammad Ilham</p></td>
+<td><p>Mendenrejo</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>14</p></td>
+<td><p>Muhammad Sirul Amin</p></td>
+<td><p>Klmapis</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>15</p></td>
+<td><p>Raihan Aryanova Narendra</p></td>
+<td><p>Sokobanah</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>16</p></td>
+<td><p>Shofiatul Mahmudah</p></td>
+<td><p>Guluk-Guluk, Sumenep</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>17</p></td>
+<td><p>Wildan Haydar Amru</p></td>
+<td><p>Krian</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>18</p></td>
+<td><p>fikri mutawakkil</p></td>
+<td><p>Pakong, Pamekasan</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cluster-2">
+<h3>Cluster 2<a class="headerlink" href="#cluster-2" title="Link to this heading">#</a></h3>
+<p>Cluster 2 terdiri dari 1 data:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No</p></th>
+<th class="head"><p>Nama</p></th>
+<th class="head"><p>Daerah</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>Muhammad Fathul Iman Wahid</p></td>
+<td><p>Burneh, Bangkalan</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="interpretasi-hasil-clustering">
+<h2>5.9 Interpretasi Hasil Clustering<a class="headerlink" href="#interpretasi-hasil-clustering" title="Link to this heading">#</a></h2>
+<p>Hasil K-Means menunjukkan bahwa data dari 19 mahasiswa dapat dikelompokkan menjadi dua cluster berdasarkan kemiripan karakteristik fitur TSFEL dari empat jenis polutan.</p>
+<p>Cluster 1 terdiri dari 18 data, sedangkan Cluster 2 terdiri dari 1 data. Data yang masuk ke Cluster 2 adalah <strong>Muhammad Fathul Iman Wahid dari Burneh, Bangkalan</strong>.</p>
+<p>Pengelompokan tersebut menunjukkan adanya perbedaan karakteristik fitur TSFEL antara data yang berada pada Cluster 1 dan Cluster 2.</p>
+<p>Hasil clustering digunakan untuk melihat <strong>pengelompokan data berdasarkan kemiripan karakteristik fitur TSFEL</strong>, bukan untuk menyatakan bahwa suatu wilayah memiliki kualitas udara yang lebih baik atau lebih buruk.</p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>5.10 Kesimpulan<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Berdasarkan proses K-Means yang dilakukan, diperoleh hasil sebagai berikut:</p>
+<ul class="simple">
+<li><p>Dataset terdiri dari <strong>19 mahasiswa</strong>.</p></li>
+<li><p>Dataset memiliki <strong>4 jenis polutan</strong>, yaitu CO, CH₄, SO₂, dan NO₂.</p></li>
+<li><p>Setiap polutan memiliki <strong>68 fitur TSFEL</strong>.</p></li>
+<li><p>Total fitur TSFEL yang digunakan adalah <strong>272 fitur</strong>.</p></li>
+<li><p>Pengujian jumlah cluster dilakukan pada <strong>K=2 sampai K=6</strong>.</p></li>
+<li><p>Nilai Silhouette Score tertinggi diperoleh pada <strong>K=2</strong>, yaitu <strong>0.4760</strong>.</p></li>
+<li><p>K-Means menghasilkan <strong>2 cluster</strong>.</p></li>
+<li><p>Cluster 1 terdiri dari <strong>18 data</strong>.</p></li>
+<li><p>Cluster 2 terdiri dari <strong>1 data</strong>.</p></li>
+</ul>
+<p>Hasil tersebut menunjukkan pengelompokan karakteristik data TSFEL berdasarkan kemiripan fitur dari empat jenis polutan.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Pengolahan%20Data%20NO%E2%82%82%20Menggunakan%20Aiven%20PostgreSQL%20dan%20KNIME.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Analisis Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Identification Area of Interest (AOI)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">1.1 Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-yang-digunakan">1.2 Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#library-yang-digunakan">1.3 Library yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuatan-peta-aoi">1.4 Pembuatan Peta AOI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menyimpan-hasil-peta">1.5 Menyimpan Hasil Peta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-visualisasi-aoi">1.6 Hasil Visualisasi AOI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peta-interaktif-folium">1.6.1 Peta Interaktif Folium</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-koordinat-aoi">1.6.2 Visualisasi Koordinat AOI</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil">1.7 Interpretasi Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">1.8 Kesimpulan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-dan-pelaporan-outlier">2. Identifikasi dan Pelaporan Outlier</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-outlier-menggunakan-metode-iqr">2.1 Identifikasi Outlier Menggunakan Metode IQR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-identifikasi-outlier">2.2 Hasil Identifikasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-identifikasi-outlier">2.3 Visualisasi Hasil Identifikasi Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.4 Interpretasi Hasil</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#periode-data">Periode Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil-deteksi-outlier-menggunakan-pyod">3. Perbandingan Hasil Deteksi Outlier Menggunakan PyOD</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-menggunakan-pyod">3.1 Deteksi Outlier Menggunakan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-deteksi-outlier-menggunakan-pyod">3.2 Hasil Deteksi Outlier Menggunakan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tanggal-outlier">3.3 Perbandingan Tanggal Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-perbandingan-iqr-dan-pyod">3.4 Visualisasi Perbandingan IQR dan PyOD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-perbandingan">3.5 Interpretasi Perbandingan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan-perbandingan">3.6 Kesimpulan Perbandingan</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-data-tsfel-4-polutan">4. Penggabungan Data TSFEL 4 Polutan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-dataset">4.1 Penggabungan Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-dataset-gabungan">4.2 Struktur Dataset Gabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-hasil-penggabungan">4.3 Dataset Hasil Penggabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-penggabungan">4.4 Hasil Penggabungan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-untuk-proses-clustering">4.5 Persiapan untuk Proses Clustering</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">5. K-Means Clustering</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-k-means-pada-knime">5.1 Proses K-Means pada KNIME</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.2 Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persiapan-data">5.3 Persiapan Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-pca">5.4 Proses PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-jumlah-cluster">5.5 Penentuan Jumlah Cluster</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-evaluasi-k-means">5.6 Visualisasi Evaluasi K-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering">5.7 Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anggota-cluster">5.8 Anggota Cluster</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-1">Cluster 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cluster-2">Cluster 2</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretasi-hasil-clustering">5.9 Interpretasi Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.10 Kesimpulan</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aisya (240411100025)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
