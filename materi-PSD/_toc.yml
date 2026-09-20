@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: Business Understanding
 - file: Pengolahan Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME
+- file: jupyter-book create materi-PSDIdentification Area of Interest (AOI)
