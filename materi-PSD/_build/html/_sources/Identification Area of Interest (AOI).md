@@ -135,7 +135,7 @@ koordinat lokasi AOI.
 
 ### 1.6.1 Peta Interaktif Folium
 
-![biak1](https://hackmd.io/_uploads/B13WD1TYMe.png)
+![biak1](biak1.png)
 
 
 **Gambar 1. Peta interaktif Area of Interest (AOI) Biak Kota menggunakan
@@ -152,7 +152,7 @@ geografis di sekitar Biak Kota dapat terlihat dengan lebih jelas.
 
 ### 1.6.2 Visualisasi Koordinat AOI
 
-![Gambar_AOI_Biak_Kota](https://hackmd.io/_uploads/H1izDkaYGl.png)
+![Gambar AOI Biak Kota](Gambar_AOI_Biak_Kota.png)
 
 
 **Gambar 2. Visualisasi koordinat Area of Interest (AOI) Biak Kota.**
@@ -294,7 +294,7 @@ Untuk memperjelas hasil identifikasi, dibuat grafik hubungan antara **tanggal pe
 
 
 
-![Grafik_Outlier_CH4_IQR_Biak_Kota](https://hackmd.io/_uploads/ryYUq1pKMl.png)
+![Grafik Outlier CH₄ IQR Biak Kota](Grafik_Outlier_CH4_IQR_Biak_Kota.png)
 
 > **Gambar 3. Identifikasi Outlier CH₄ Menggunakan Metode IQR di Biak Kota**
 
@@ -410,7 +410,7 @@ Untuk memperjelas hasil perbandingan, dibuat grafik yang menampilkan hasil detek
 **Masukkan grafik hasil perbandingan pada bagian berikut:**
 
 
-![Grafik_Perbandingan_IQR_vs_PyOD_CH4_Biak_Kota](https://hackmd.io/_uploads/ByZaiy6tMe.png)
+![Perbandingan IQR dan PyOD CH₄ Biak Kota](Grafik_Perbandingan_IQR_vs_PyOD_CH4_Biak_Kota.png)
 
 > **Gambar 4. Perbandingan Deteksi Outlier CH₄ Menggunakan IQR dan PyOD-ECOD**
 
@@ -562,7 +562,8 @@ Alur workflow yang digunakan adalah:
 
 
 
-![psdd](https://hackmd.io/_uploads/Skz56L6FMg.png)
+
+![Alur Workflow KNIME](psdd.png)
 
 
 Gambar menunjukkan alur pengolahan data mulai dari **Excel Reader**, kemudian data diteruskan ke proses K-Means secara langsung dan ke proses PCA. Hasil PCA selanjutnya digunakan sebagai input untuk proses K-Means.
