@@ -39,7 +39,7 @@ Data yang awalnya tersedia tetap dipertahankan sebagai nilai observasi, sedangka
 
 Hasil pengolahan kemudian digunakan sebagai dasar untuk tahap berikutnya. Kolom `CO_imputed` menjadi data yang digunakan dalam proses pengolahan lanjutan karena seluruh data sudah memiliki nilai.
 
-![Output analisis 1](https://hackmd.io/_uploads/BJIXN1ljzg.png)
+![Output analisis 1](<Output analisis 1.png>)
 
 
 **Gambar 1. Hasil penanganan missing value menggunakan Polynomial Interpolation pada data CO Kecamatan Biak Kota.**
@@ -155,7 +155,7 @@ Pada konfigurasi K-Means digunakan parameter:
 | Maximum number of iterations | **99** |
 
 Jumlah cluster ditentukan sebanyak **2** sehingga data mahasiswa dibagi menjadi dua kelompok berdasarkan kemiripan karakteristik dari fitur TSFEL.
-![gambar knime](https://hackmd.io/_uploads/HkN1PJxsze.png)
+![gambar knime](gambar%20knime.png)
 
 
 **Gambar 5. Workflow pengolahan data menggunakan KNIME.**
