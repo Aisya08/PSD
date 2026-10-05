@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A &#8212; Proyek Sains Data - Aisya</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="TUGAS 1" href="TUGAS%201%20%E2%80%94%20PENGOLAHAN%20DATA%2C%20EKSTRAKSI%20FITUR%2C%20DAN%20DETEKSI%20OUTLIER.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/syaa.jpeg" class="logo__image only-light" alt="Proyek Sains Data - Aisya - Home"/>
+    <img src="_static/syaa.jpeg" class="logo__image only-dark pst-js-only" alt="Proyek Sains Data - Aisya - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Proyek Sains Data - Portfolio Materi
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Business%20Understanding.html">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pengolahan%20Data%20NO%E2%82%82%20Menggunakan%20Aiven%20PostgreSQL%20dan%20KNIME.html">Analisis Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Identification%20Area%20of%20Interest%20%28AOI%29.html">1. Identification Area of Interest (AOI)</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="TUGAS%201%20%E2%80%94%20PENGOLAHAN%20DATA%2C%20EKSTRAKSI%20FITUR%2C%20DAN%20DETEKSI%20OUTLIER.html">TUGAS 1</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">1. Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">2. Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-penelitian">3. Wilayah Penelitian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-yang-digunakan">4. Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-of-interest-aoi">5. Area of Interest (AoI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-aoi-dan-titik-sampel">Dokumentasi AoI dan Titik Sampel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-titik-sampel">6. Penentuan Titik Sampel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelas-sawah">6.1 Kelas Sawah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelas-pemukiman">6.2 Kelas Pemukiman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citra-sentinel-2a">7. Citra Sentinel-2A</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-citra">Dokumentasi Citra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-klasifikasi">8. Metode Klasifikasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-pengolahan">9. Tahapan Pengolahan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wilayah-penelitian">9.1 Menentukan Wilayah Penelitian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-area-of-interest-aoi">9.2 Menentukan Area of Interest (AoI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-titik-sampel">9.3 Membuat Titik Sampel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-citra-sentinel-2a">9.4 Mengambil Citra Sentinel-2A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-data-training">9.5 Membentuk Data Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-klasifikasi">9.6 Melakukan Klasifikasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-klasifikasi">10. Hasil Klasifikasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peta-hasil-klasifikasi">Peta Hasil Klasifikasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-hasil">11. Analisis Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">12. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">13. Kesimpulan</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-2-pemetaan-dan-klasifikasi-lahan-menggunakan-citra-sentinel-2a">
+<h1>TUGAS 2 — PEMETAAN DAN KLASIFIKASI LAHAN MENGGUNAKAN CITRA SENTINEL-2A<a class="headerlink" href="#tugas-2-pemetaan-dan-klasifikasi-lahan-menggunakan-citra-sentinel-2a" title="Link to this heading">#</a></h1>
+<section id="pendahuluan">
+<h2>1. Pendahuluan<a class="headerlink" href="#pendahuluan" title="Link to this heading">#</a></h2>
+<p>Tugas 2 merupakan lanjutan dari proses pengolahan data pada tugas sebelumnya. Pada tugas sebelumnya dilakukan tahap persiapan dan penentuan wilayah yang akan digunakan dalam proses pengolahan data spasial.</p>
+<p>Pada Tugas 2 ini, proses dilanjutkan dengan melakukan <strong>pemetaan dan klasifikasi tutupan lahan</strong> menggunakan citra satelit Sentinel-2A. Klasifikasi dilakukan pada wilayah <strong>Kecamatan Omben, Kabupaten Sampang, Jawa Timur</strong>.</p>
+<p>Tutupan lahan yang digunakan dalam proses klasifikasi terdiri dari dua kelas, yaitu <strong>sawah</strong> dan <strong>pemukiman</strong>. Untuk membantu proses klasifikasi, dibuat titik sampel yang terdiri dari 50 titik sawah dan 50 titik pemukiman.</p>
+<p>Pengolahan citra dilakukan menggunakan <strong>Google Earth Engine (GEE)</strong>. Tahapan pengolahan meliputi penentuan area penelitian, pembuatan titik sampel, pengambilan citra Sentinel-2A, pembentukan data training, proses klasifikasi menggunakan Random Forest, serta visualisasi hasil klasifikasi.</p>
+</section>
+<hr class="docutils" />
+<section id="tujuan">
+<h2>2. Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
+<p>Tujuan dari Tugas 2 ini adalah:</p>
+<ol class="arabic simple">
+<li><p>Menentukan wilayah penelitian pada Kecamatan Omben, Kabupaten Sampang.</p></li>
+<li><p>Menentukan Area of Interest (AoI) yang digunakan dalam proses pengolahan citra.</p></li>
+<li><p>Membuat data titik sampel untuk kelas sawah dan pemukiman.</p></li>
+<li><p>Menggunakan citra Sentinel-2A sebagai data utama klasifikasi.</p></li>
+<li><p>Melakukan klasifikasi tutupan lahan menggunakan metode Random Forest.</p></li>
+<li><p>Menampilkan hasil klasifikasi dalam bentuk peta.</p></li>
+<li><p>Menghasilkan data hasil klasifikasi dalam format GeoTIFF (<code class="docutils literal notranslate"><span class="pre">.tif</span></code>).</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="wilayah-penelitian">
+<h2>3. Wilayah Penelitian<a class="headerlink" href="#wilayah-penelitian" title="Link to this heading">#</a></h2>
+<p>Wilayah penelitian yang digunakan pada Tugas 2 adalah <strong>Kecamatan Omben, Kabupaten Sampang, Provinsi Jawa Timur</strong>.</p>
+<p>Wilayah tersebut digunakan sebagai lokasi penelitian karena terdapat berbagai jenis tutupan lahan yang dapat diamati menggunakan citra satelit, khususnya lahan pertanian dan kawasan pemukiman.</p>
+<p>Informasi wilayah penelitian dapat dilihat pada tabel berikut.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Keterangan</p></th>
+<th class="head"><p>Informasi</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Kecamatan</p></td>
+<td><p>Omben</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kabupaten</p></td>
+<td><p>Sampang</p></td>
+</tr>
+<tr class="row-even"><td><p>Provinsi</p></td>
+<td><p>Jawa Timur</p></td>
+</tr>
+<tr class="row-odd"><td><p>Negara</p></td>
+<td><p>Indonesia</p></td>
+</tr>
+<tr class="row-even"><td><p>Data Citra</p></td>
+<td><p>Sentinel-2A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Platform Pengolahan</p></td>
+<td><p>Google Earth Engine</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="data-yang-digunakan">
+<h2>4. Data yang Digunakan<a class="headerlink" href="#data-yang-digunakan" title="Link to this heading">#</a></h2>
+<p>Data yang digunakan dalam proses pemetaan dan klasifikasi terdiri dari data citra satelit dan data titik sampel.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>No.</p></th>
+<th class="head"><p>Data</p></th>
+<th class="head"><p>Keterangan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Sentinel-2A</p></td>
+<td><p>Data citra satelit</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>GeoJSON</p></td>
+<td><p>Data titik sampel</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Sawah</p></td>
+<td><p>50 titik sampel</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Pemukiman</p></td>
+<td><p>50 titik sampel</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Google Earth Engine</p></td>
+<td><p>Platform pengolahan data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jumlah titik sampel yang digunakan adalah <strong>100 titik</strong>, dengan pembagian:</p>
+<ul class="simple">
+<li><p><strong>50 titik kelas sawah</strong></p></li>
+<li><p><strong>50 titik kelas pemukiman</strong></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="area-of-interest-aoi">
+<h2>5. Area of Interest (AoI)<a class="headerlink" href="#area-of-interest-aoi" title="Link to this heading">#</a></h2>
+<p>Area of Interest (AoI) merupakan wilayah yang menjadi fokus dalam proses pengolahan citra. Pada Tugas 2 ini, area penelitian difokuskan pada wilayah <strong>Kecamatan Omben, Kabupaten Sampang</strong>.</p>
+<p>Penentuan AoI dilakukan agar proses pengolahan citra Sentinel-2A dapat difokuskan pada wilayah penelitian dan tidak mencakup wilayah yang tidak diperlukan.</p>
+<section id="dokumentasi-aoi-dan-titik-sampel">
+<h3>Dokumentasi AoI dan Titik Sampel<a class="headerlink" href="#dokumentasi-aoi-dan-titik-sampel" title="Link to this heading">#</a></h3>
+<p><img alt="01_titik_sampel_omben" src="https://hackmd.io/_uploads/ByX-2_esMx.png" /></p>
+<p><strong>Gambar 1. Area of Interest dan titik sampel wilayah penelitian</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="penentuan-titik-sampel">
+<h2>6. Penentuan Titik Sampel<a class="headerlink" href="#penentuan-titik-sampel" title="Link to this heading">#</a></h2>
+<p>Titik sampel digunakan sebagai data referensi dalam proses klasifikasi. Setiap titik diberi kelas berdasarkan jenis tutupan lahan yang digunakan dalam penelitian.</p>
+<p>Pada Tugas 2 digunakan dua kelas tutupan lahan.</p>
+<section id="kelas-sawah">
+<h3>6.1 Kelas Sawah<a class="headerlink" href="#kelas-sawah" title="Link to this heading">#</a></h3>
+<p>Kelas sawah digunakan untuk merepresentasikan area yang merupakan lahan pertanian atau persawahan.</p>
+<p>Jumlah sampel yang digunakan:</p>
+<p><strong>50 titik sawah</strong></p>
+</section>
+<section id="kelas-pemukiman">
+<h3>6.2 Kelas Pemukiman<a class="headerlink" href="#kelas-pemukiman" title="Link to this heading">#</a></h3>
+<p>Kelas pemukiman digunakan untuk merepresentasikan area yang digunakan sebagai kawasan tempat tinggal atau area terbangun.</p>
+<p>Jumlah sampel yang digunakan:</p>
+<p><strong>50 titik pemukiman</strong></p>
+<p>Dengan demikian, jumlah keseluruhan titik sampel adalah:</p>
+<p><strong>50 titik sawah + 50 titik pemukiman = 100 titik sampel.</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="citra-sentinel-2a">
+<h2>7. Citra Sentinel-2A<a class="headerlink" href="#citra-sentinel-2a" title="Link to this heading">#</a></h2>
+<p>Citra Sentinel-2A digunakan sebagai sumber data utama dalam proses klasifikasi. Citra satelit memberikan informasi mengenai karakteristik permukaan bumi berdasarkan nilai spektral pada beberapa kanal.</p>
+<p>Citra yang digunakan difokuskan pada wilayah penelitian sehingga informasi yang diperoleh dapat digunakan untuk membedakan karakteristik tutupan lahan sawah dan pemukiman.</p>
+<p>Pengolahan citra dilakukan menggunakan Google Earth Engine karena platform tersebut menyediakan fasilitas untuk mengakses dan mengolah data citra satelit secara langsung.</p>
+<section id="dokumentasi-citra">
+<h3>Dokumentasi Citra<a class="headerlink" href="#dokumentasi-citra" title="Link to this heading">#</a></h3>
+<p><img alt="02_citra_sentinel2a_omben" src="https://hackmd.io/_uploads/Bklmn_giMl.png" /></p>
+<p><strong>Gambar 2. Citra Sentinel-2A pada wilayah penelitian</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="metode-klasifikasi">
+<h2>8. Metode Klasifikasi<a class="headerlink" href="#metode-klasifikasi" title="Link to this heading">#</a></h2>
+<p>Metode klasifikasi yang digunakan pada Tugas 2 adalah <strong>Random Forest</strong>.</p>
+<p>Random Forest merupakan metode machine learning yang menggunakan sejumlah decision tree untuk melakukan proses klasifikasi. Dalam penelitian ini, model digunakan untuk membedakan dua kelas tutupan lahan berdasarkan karakteristik spektral citra Sentinel-2A.</p>
+<p>Data titik sampel digunakan sebagai data training. Nilai spektral pada lokasi titik sampel digunakan oleh model untuk mempelajari karakteristik masing-masing kelas.</p>
+</section>
+<section id="tahapan-pengolahan">
+<h2>9. Tahapan Pengolahan<a class="headerlink" href="#tahapan-pengolahan" title="Link to this heading">#</a></h2>
+<p>Proses pengolahan data pada Tugas 2 dilakukan melalui beberapa tahapan, mulai dari menentukan wilayah penelitian sampai menghasilkan peta klasifikasi tutupan lahan. Seluruh proses pengolahan citra dilakukan menggunakan Google Earth Engine.</p>
+<section id="menentukan-wilayah-penelitian">
+<h3>9.1 Menentukan Wilayah Penelitian<a class="headerlink" href="#menentukan-wilayah-penelitian" title="Link to this heading">#</a></h3>
+<p>Tahap pertama adalah menentukan wilayah penelitian. Wilayah yang digunakan dalam tugas ini adalah <strong>Kecamatan Omben, Kabupaten Sampang, Jawa Timur</strong>.</p>
+<p>Wilayah tersebut menjadi lokasi utama dalam proses pemetaan dan klasifikasi tutupan lahan menggunakan citra Sentinel-2A.</p>
+</section>
+<section id="menentukan-area-of-interest-aoi">
+<h3>9.2 Menentukan Area of Interest (AoI)<a class="headerlink" href="#menentukan-area-of-interest-aoi" title="Link to this heading">#</a></h3>
+<p>Setelah wilayah penelitian ditentukan, tahap berikutnya adalah menentukan <strong>Area of Interest (AoI)</strong>. AoI digunakan sebagai batas wilayah yang menjadi fokus dalam proses pengolahan citra.</p>
+<p>Dengan adanya AoI, proses pengolahan citra Sentinel-2A dapat difokuskan pada wilayah penelitian sehingga data yang digunakan sesuai dengan kebutuhan analisis.</p>
+</section>
+<section id="membuat-titik-sampel">
+<h3>9.3 Membuat Titik Sampel<a class="headerlink" href="#membuat-titik-sampel" title="Link to this heading">#</a></h3>
+<p>Tahap selanjutnya adalah membuat titik sampel yang digunakan sebagai data referensi dalam proses klasifikasi.</p>
+<p>Pada penelitian ini digunakan dua kelas tutupan lahan, yaitu:</p>
+<ul class="simple">
+<li><p><strong>50 titik sampel sawah</strong></p></li>
+<li><p><strong>50 titik sampel pemukiman</strong></p></li>
+</ul>
+<p>Sehingga jumlah keseluruhan titik sampel yang digunakan adalah <strong>100 titik</strong>.</p>
+<p>Titik sampel tersebut kemudian digunakan untuk membantu model dalam mengenali karakteristik masing-masing kelas tutupan lahan.</p>
+</section>
+<section id="mengambil-citra-sentinel-2a">
+<h3>9.4 Mengambil Citra Sentinel-2A<a class="headerlink" href="#mengambil-citra-sentinel-2a" title="Link to this heading">#</a></h3>
+<p>Setelah titik sampel ditentukan, tahap berikutnya adalah mengambil citra <strong>Sentinel-2A</strong> pada wilayah penelitian.</p>
+<p>Citra Sentinel-2A digunakan sebagai sumber data utama karena memiliki informasi spektral yang dapat digunakan untuk membedakan karakteristik permukaan bumi.</p>
+<p>Citra yang digunakan kemudian disesuaikan dengan wilayah AoI yang telah ditentukan sebelumnya.</p>
+</section>
+<section id="membentuk-data-training">
+<h3>9.5 Membentuk Data Training<a class="headerlink" href="#membentuk-data-training" title="Link to this heading">#</a></h3>
+<p>Nilai spektral dari citra Sentinel-2A pada lokasi titik sampel kemudian digunakan untuk membentuk <strong>data training</strong>.</p>
+<p>Data training terdiri dari data yang mewakili dua kelas, yaitu sawah dan pemukiman. Data tersebut digunakan sebagai dasar bagi model klasifikasi untuk mempelajari karakteristik masing-masing kelas.</p>
+</section>
+<section id="melakukan-klasifikasi">
+<h3>9.6 Melakukan Klasifikasi<a class="headerlink" href="#melakukan-klasifikasi" title="Link to this heading">#</a></h3>
+<p>Setelah data training terbentuk, proses klasifikasi dilakukan menggunakan metode <strong>Random Forest</strong>.</p>
+<p>Random Forest digunakan untuk mempelajari pola dari data training kemudian menerapkan pola tersebut pada citra Sentinel-2A.</p>
+<p>Hasil dari proses tersebut adalah klasifikasi setiap piksel pada wilayah penelitian ke dalam kelas sawah atau pemukiman.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="hasil-klasifikasi">
+<h2>10. Hasil Klasifikasi<a class="headerlink" href="#hasil-klasifikasi" title="Link to this heading">#</a></h2>
+<p>Setelah seluruh tahapan pengolahan selesai dilakukan, diperoleh hasil klasifikasi tutupan lahan pada wilayah penelitian.</p>
+<p>Hasil klasifikasi dibagi menjadi dua kelas tutupan lahan, yaitu sawah dan pemukiman.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Kode</p></th>
+<th class="head text-left"><p>Kelas Tutupan Lahan</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-left"><p>Sawah</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td class="text-left"><p>Pemukiman</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Kelas <strong>sawah</strong> digunakan untuk menunjukkan area yang teridentifikasi sebagai lahan pertanian, sedangkan kelas <strong>pemukiman</strong> digunakan untuk menunjukkan area yang teridentifikasi sebagai kawasan terbangun atau tempat tinggal.</p>
+<section id="peta-hasil-klasifikasi">
+<h3>Peta Hasil Klasifikasi<a class="headerlink" href="#peta-hasil-klasifikasi" title="Link to this heading">#</a></h3>
+<p><img alt="04_hasil_klasifikasi_omben" src="https://hackmd.io/_uploads/Skc4aOeofx.png" /></p>
+<p><strong>Gambar 4. Hasil klasifikasi tutupan lahan sawah dan pemukiman</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="analisis-hasil">
+<h2>11. Analisis Hasil<a class="headerlink" href="#analisis-hasil" title="Link to this heading">#</a></h2>
+<p>Berdasarkan proses klasifikasi yang dilakukan, citra Sentinel-2A dapat digunakan sebagai salah satu sumber data untuk membedakan jenis tutupan lahan berdasarkan karakteristik spektralnya.</p>
+<p>Pada proses ini, wilayah penelitian dikelompokkan menjadi dua kelas utama, yaitu <strong>sawah</strong> dan <strong>pemukiman</strong>. Kedua kelas tersebut memiliki karakteristik permukaan yang berbeda sehingga dapat digunakan sebagai dasar dalam proses klasifikasi menggunakan metode Random Forest.</p>
+<p>Area sawah memiliki karakteristik yang berkaitan dengan vegetasi dan kondisi lahan pertanian, sedangkan area pemukiman lebih banyak memiliki karakteristik permukaan terbangun seperti bangunan dan infrastruktur.</p>
+<p>Hasil klasifikasi kemudian divisualisasikan dalam bentuk peta agar persebaran kedua kelas tutupan lahan dapat diamati dengan lebih mudah.</p>
+<p>Hasil ini dapat digunakan sebagai gambaran awal mengenai pola persebaran lahan sawah dan pemukiman pada wilayah Kecamatan Omben, Kabupaten Sampang.</p>
+</section>
+<hr class="docutils" />
+<section id="output">
+<h2>12. Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<p>Output yang dihasilkan dari Tugas 2 terdiri dari beberapa data dan hasil pengolahan, yaitu:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TUGAS 2
+│
+├── Area of Interest (AoI)
+│
+├── 50 Titik Sampel Sawah
+│
+├── 50 Titik Sampel Pemukiman
+│
+├── Citra Sentinel-2A
+│
+├── Data Training
+│
+├── Hasil Klasifikasi
+│
+└── GeoTIFF (.tif)
+</pre></div>
+</div>
+<p>Output utama dari proses klasifikasi berupa data raster hasil klasifikasi yang dapat disimpan dalam format <strong>GeoTIFF (<code class="docutils literal notranslate"><span class="pre">.tif</span></code>)</strong>.</p>
+<p>Format GeoTIFF digunakan karena dapat menyimpan data raster beserta informasi spasialnya. Dengan demikian, hasil klasifikasi dapat digunakan kembali pada perangkat lunak Sistem Informasi Geografis (SIG) untuk proses analisis atau visualisasi lebih lanjut.</p>
+</section>
+<hr class="docutils" />
+<section id="kesimpulan">
+<h2>13. Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
+<p>Tugas 2 merupakan lanjutan dari tugas sebelumnya yang berfokus pada proses pemetaan dan klasifikasi tutupan lahan menggunakan citra Sentinel-2A.</p>
+<p>Wilayah penelitian yang digunakan adalah <strong>Kecamatan Omben, Kabupaten Sampang, Jawa Timur</strong>. Proses klasifikasi dilakukan menggunakan dua kelas tutupan lahan, yaitu <strong>sawah dan pemukiman</strong>.</p>
+<p>Data sampel yang digunakan berjumlah <strong>100 titik</strong>, yang terdiri dari <strong>50 titik sawah dan 50 titik pemukiman</strong>. Titik sampel tersebut digunakan sebagai data referensi dalam pembentukan data training.</p>
+<p>Pengolahan data dilakukan menggunakan <strong>Google Earth Engine</strong> dengan metode <strong>Random Forest</strong>. Tahapan pengolahan dimulai dari penentuan wilayah penelitian, penentuan Area of Interest, pembuatan titik sampel, pengambilan citra Sentinel-2A, pembentukan data training, proses klasifikasi, hingga visualisasi hasil.</p>
+<p>Hasil akhir dari proses tersebut berupa peta klasifikasi tutupan lahan yang membedakan area sawah dan pemukiman. Hasil klasifikasi juga dapat diekspor dalam format <strong>GeoTIFF</strong> sehingga dapat digunakan kembali dalam pengolahan data spasial.</p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="TUGAS%201%20%E2%80%94%20PENGOLAHAN%20DATA%2C%20EKSTRAKSI%20FITUR%2C%20DAN%20DETEKSI%20OUTLIER.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TUGAS 1</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pendahuluan">1. Pendahuluan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">2. Tujuan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilayah-penelitian">3. Wilayah Penelitian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-yang-digunakan">4. Data yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#area-of-interest-aoi">5. Area of Interest (AoI)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-aoi-dan-titik-sampel">Dokumentasi AoI dan Titik Sampel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penentuan-titik-sampel">6. Penentuan Titik Sampel</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelas-sawah">6.1 Kelas Sawah</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kelas-pemukiman">6.2 Kelas Pemukiman</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citra-sentinel-2a">7. Citra Sentinel-2A</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dokumentasi-citra">Dokumentasi Citra</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-klasifikasi">8. Metode Klasifikasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-pengolahan">9. Tahapan Pengolahan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-wilayah-penelitian">9.1 Menentukan Wilayah Penelitian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-area-of-interest-aoi">9.2 Menentukan Area of Interest (AoI)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membuat-titik-sampel">9.3 Membuat Titik Sampel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengambil-citra-sentinel-2a">9.4 Mengambil Citra Sentinel-2A</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membentuk-data-training">9.5 Membentuk Data Training</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#melakukan-klasifikasi">9.6 Melakukan Klasifikasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-klasifikasi">10. Hasil Klasifikasi</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peta-hasil-klasifikasi">Peta Hasil Klasifikasi</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-hasil">11. Analisis Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">12. Output</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">13. Kesimpulan</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aisya (240411100025)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

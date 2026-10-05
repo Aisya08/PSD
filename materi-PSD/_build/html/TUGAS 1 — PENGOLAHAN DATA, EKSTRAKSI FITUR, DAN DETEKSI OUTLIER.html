@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TUGAS 1 &#8212; Proyek Sains Data - Aisya</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'TUGAS 1 — PENGOLAHAN DATA, EKSTRAKSI FITUR, DAN DETEKSI OUTLIER';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Identification Area of Interest (AOI)" href="Identification%20Area%20of%20Interest%20%28AOI%29.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/syaa.jpeg" class="logo__image only-light" alt="Proyek Sains Data - Aisya - Home"/>
+    <img src="_static/syaa.jpeg" class="logo__image only-dark pst-js-only" alt="Proyek Sains Data - Aisya - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Proyek Sains Data - Portfolio Materi
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Business%20Understanding.html">Business Understanding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pengolahan%20Data%20NO%E2%82%82%20Menggunakan%20Aiven%20PostgreSQL%20dan%20KNIME.html">Analisis Data NO₂ Menggunakan Aiven PostgreSQL dan KNIME</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Identification%20Area%20of%20Interest%20%28AOI%29.html">1. Identification Area of Interest (AOI)</a></li>
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TUGAS 1</a></li>
+
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTUGAS 1 — PENGOLAHAN DATA, EKSTRAKSI FITUR, DAN DETEKSI OUTLIER.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/TUGAS 1 — PENGOLAHAN DATA, EKSTRAKSI FITUR, DAN DETEKSI OUTLIER.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TUGAS 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TUGAS 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengolahan-data-ekstraksi-fitur-dan-deteksi-outlier">Pengolahan Data, Ekstraksi Fitur, dan Deteksi Outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penanganan-missing-value-imputasi-polinomial">1. Penanganan Missing Value (Imputasi Polinomial)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perubahan-metode">Perubahan Metode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-imputasi">Proses Imputasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-penanganan-missing-value">Hasil Penanganan Missing Value</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">2. Ekstraksi Fitur</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyesuaian-input-data">Penyesuaian Input Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-yang-digunakan">Polutan yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-68-fitur">Ekstraksi 68 Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-fitur">Penggabungan Fitur</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-knime">3. Deteksi Outlier (KNIME)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengolahan-kembali">Pengolahan Kembali</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-reader">3.1 Excel Reader</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#column-filter">3.2 Column Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">3.3 K-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering">3.4 Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kandidat-outlier">3.5 Identifikasi Kandidat Outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-keseluruhan">Alur Keseluruhan</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-1">
+<h1>TUGAS 1<a class="headerlink" href="#tugas-1" title="Link to this heading">#</a></h1>
+<section id="pengolahan-data-ekstraksi-fitur-dan-deteksi-outlier">
+<h2>Pengolahan Data, Ekstraksi Fitur, dan Deteksi Outlier<a class="headerlink" href="#pengolahan-data-ekstraksi-fitur-dan-deteksi-outlier" title="Link to this heading">#</a></h2>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="penanganan-missing-value-imputasi-polinomial">
+<h1>1. Penanganan Missing Value (Imputasi Polinomial)<a class="headerlink" href="#penanganan-missing-value-imputasi-polinomial" title="Link to this heading">#</a></h1>
+<section id="perubahan-metode">
+<h2>Perubahan Metode<a class="headerlink" href="#perubahan-metode" title="Link to this heading">#</a></h2>
+<p>Pada pengolahan sebelumnya, pengisian data yang hilang (<em>missing value</em>) menggunakan metode <strong>imputasi linier</strong>. Pada pengolahan kembali ini, metode tersebut diubah menjadi <strong>imputasi polinomial (Polynomial Interpolation)</strong>.</p>
+<p>Penanganan <em>missing value</em> dilakukan sebagai tahap awal karena data yang digunakan masih memiliki beberapa nilai kosong. Nilai kosong tersebut perlu ditangani terlebih dahulu agar tidak mengganggu proses pengolahan dan ekstraksi fitur pada tahap berikutnya.</p>
+<p>Pada data CO Kecamatan Biak Kota terdapat data pengamatan selama <strong>365 hari</strong>. Dari data tersebut terdapat nilai <code class="docutils literal notranslate"><span class="pre">CO_original</span></code> yang kosong, sehingga diperlukan proses imputasi untuk mendapatkan data yang lengkap.</p>
+<p>Metode <strong>Polynomial Interpolation</strong> digunakan untuk memperkirakan nilai yang hilang berdasarkan pola perubahan data di sekitar nilai yang kosong. Dengan metode ini, nilai yang hilang tidak hanya diisi berdasarkan dua titik terdekat secara linier, tetapi mengikuti pola polinomial dari data yang tersedia.</p>
+</section>
+<section id="proses-imputasi">
+<h2>Proses Imputasi<a class="headerlink" href="#proses-imputasi" title="Link to this heading">#</a></h2>
+<p>Tahapan yang dilakukan adalah:</p>
+<ol class="arabic simple">
+<li><p>Membaca data CO berdasarkan tanggal pengamatan.</p></li>
+<li><p>Memeriksa nilai yang terdapat pada kolom <code class="docutils literal notranslate"><span class="pre">CO_original</span></code>.</p></li>
+<li><p>Mengidentifikasi data yang memiliki nilai kosong.</p></li>
+<li><p>Melakukan imputasi menggunakan <strong>Polynomial Interpolation</strong>.</p></li>
+<li><p>Menyimpan hasil imputasi pada kolom <code class="docutils literal notranslate"><span class="pre">CO_imputed</span></code>.</p></li>
+<li><p>Melakukan pengecekan kembali untuk memastikan tidak terdapat nilai kosong pada hasil imputasi.</p></li>
+</ol>
+<p>Pada dataset CO yang digunakan terdapat <strong>365 data pengamatan</strong>. Sebelum dilakukan imputasi, kolom <code class="docutils literal notranslate"><span class="pre">CO_original</span></code> memiliki <strong>221 nilai yang kosong</strong>. Setelah proses imputasi dilakukan, kolom <code class="docutils literal notranslate"><span class="pre">CO_imputed</span></code> sudah tidak memiliki nilai kosong.</p>
+<p>Data yang awalnya tersedia tetap dipertahankan sebagai nilai observasi, sedangkan data yang sebelumnya kosong diberikan nilai hasil estimasi dari proses imputasi.</p>
+</section>
+<section id="hasil-penanganan-missing-value">
+<h2>Hasil Penanganan Missing Value<a class="headerlink" href="#hasil-penanganan-missing-value" title="Link to this heading">#</a></h2>
+<p>Hasil pengolahan kemudian digunakan sebagai dasar untuk tahap berikutnya. Kolom <code class="docutils literal notranslate"><span class="pre">CO_imputed</span></code> menjadi data yang digunakan dalam proses pengolahan lanjutan karena seluruh data sudah memiliki nilai.</p>
+<p><img alt="Gambar 1. Hasil Penanganan Missing Value" src="_images/output-analisis-1.png" /></p>
+<p><strong>Gambar 1. Hasil penanganan missing value menggunakan Polynomial Interpolation pada data CO Kecamatan Biak Kota.</strong></p>
+<p>Berdasarkan hasil tersebut, data CO yang sebelumnya memiliki nilai kosong sudah dapat digunakan untuk proses ekstraksi fitur. Dengan demikian, proses ekstraksi fitur tidak lagi menggunakan data yang masih memiliki <em>missing value</em>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-fitur">
+<h1>2. Ekstraksi Fitur<a class="headerlink" href="#ekstraksi-fitur" title="Link to this heading">#</a></h1>
+<section id="penyesuaian-input-data">
+<h2>Penyesuaian Input Data<a class="headerlink" href="#penyesuaian-input-data" title="Link to this heading">#</a></h2>
+<p>Setelah proses penanganan <em>missing value</em> selesai, tahap selanjutnya adalah melakukan ekstraksi fitur.</p>
+<p>Sesuai dengan perubahan metode pada tugas, dataset yang digunakan sebagai input ekstraksi fitur merupakan <strong>dataset hasil imputasi polinomial</strong>, bukan lagi dataset hasil imputasi linier.</p>
+<p>Data hasil imputasi digunakan sebagai input karena proses ekstraksi fitur membutuhkan data deret waktu yang lengkap. Jika masih terdapat nilai kosong, beberapa perhitungan fitur dapat terganggu atau menghasilkan nilai yang tidak sesuai.</p>
+<p>Ekstraksi fitur dilakukan menggunakan <strong>TSFEL (Time Series Feature Extraction Library)</strong>. TSFEL digunakan untuk mengambil berbagai karakteristik dari data deret waktu sehingga data yang awalnya berupa rangkaian nilai konsentrasi dapat diubah menjadi sejumlah fitur numerik.</p>
+</section>
+<section id="polutan-yang-digunakan">
+<h2>Polutan yang Digunakan<a class="headerlink" href="#polutan-yang-digunakan" title="Link to this heading">#</a></h2>
+<p>Proses ekstraksi fitur dilakukan pada empat jenis polutan, yaitu:</p>
+<ul class="simple">
+<li><p><strong>CO (Carbon Monoxide)</strong></p></li>
+<li><p><strong>SO₂ (Sulfur Dioxide)</strong></p></li>
+<li><p><strong>CH₄ (Methane)</strong></p></li>
+<li><p><strong>NO₂ (Nitrogen Dioxide)</strong></p></li>
+</ul>
+<p>Setiap polutan diproses secara terpisah menggunakan dataset yang sudah melalui proses penanganan <em>missing value</em>.</p>
+</section>
+<section id="ekstraksi-68-fitur">
+<h2>Ekstraksi 68 Fitur<a class="headerlink" href="#ekstraksi-68-fitur" title="Link to this heading">#</a></h2>
+<p>Pada masing-masing polutan digunakan <strong>68 fitur TSFEL</strong>.</p>
+<p>Dengan empat jenis polutan, jumlah fitur yang diperoleh adalah:</p>
+<p><strong>4 polutan × 68 fitur = 272 fitur</strong></p>
+<p>Sehingga setiap data mahasiswa memiliki total <strong>272 fitur TSFEL</strong>.</p>
+<p>Fitur-fitur tersebut digunakan untuk menggambarkan karakteristik dari data deret waktu, seperti karakteristik statistik, perubahan data, karakteristik frekuensi, dan karakteristik sinyal lainnya.</p>
+</section>
+<section id="penggabungan-fitur">
+<h2>Penggabungan Fitur<a class="headerlink" href="#penggabungan-fitur" title="Link to this heading">#</a></h2>
+<p>Setelah proses ekstraksi selesai, fitur dari masing-masing polutan kemudian digabungkan menjadi satu dataset.</p>
+<p>Dataset akhir yang digunakan pada tahap analisis terdiri dari:</p>
+<ul class="simple">
+<li><p><strong>19 mahasiswa</strong></p></li>
+<li><p><strong>4 jenis polutan</strong></p></li>
+<li><p><strong>68 fitur untuk setiap polutan</strong></p></li>
+<li><p><strong>272 fitur TSFEL secara keseluruhan</strong></p></li>
+</ul>
+<p>Dataset gabungan inilah yang kemudian digunakan pada tahap berikutnya, yaitu deteksi outlier menggunakan algoritma <strong>K-Means pada KNIME</strong>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="deteksi-outlier-knime">
+<h1>3. Deteksi Outlier (KNIME)<a class="headerlink" href="#deteksi-outlier-knime" title="Link to this heading">#</a></h1>
+<section id="pengolahan-kembali">
+<h2>Pengolahan Kembali<a class="headerlink" href="#pengolahan-kembali" title="Link to this heading">#</a></h2>
+<p>Pada tahap ketiga dilakukan proses deteksi data pencilan (<em>outlier detection</em>) menggunakan software <strong>KNIME</strong> dengan algoritma <strong>K-Means</strong>.</p>
+<p>Data yang digunakan merupakan dataset hasil ekstraksi fitur dari tahap sebelumnya. Dataset tersebut terdiri dari <strong>19 mahasiswa</strong> dengan total <strong>272 fitur TSFEL</strong> yang berasal dari empat jenis polutan, yaitu CO, SO₂, CH₄, dan NO₂.</p>
+<p>Sebelum proses K-Means dilakukan, kolom identitas seperti <code class="docutils literal notranslate"><span class="pre">Nama</span></code> dan <code class="docutils literal notranslate"><span class="pre">Daerah</span></code> tidak digunakan sebagai variabel clustering. Kedua kolom tersebut hanya digunakan sebagai identitas data, sedangkan proses clustering dilakukan berdasarkan fitur TSFEL.</p>
+</section>
+<section id="excel-reader">
+<h2>3.1 Excel Reader<a class="headerlink" href="#excel-reader" title="Link to this heading">#</a></h2>
+<p>Node <strong>Excel Reader</strong> digunakan untuk membaca dataset gabungan yang terdapat pada sheet <strong>Semua Fitur</strong>.</p>
+<p>Dataset tersebut terdiri dari:</p>
+<ul class="simple">
+<li><p>19 mahasiswa</p></li>
+<li><p>2 kolom identitas</p></li>
+<li><p>272 fitur TSFEL</p></li>
+<li><p>274 kolom secara keseluruhan</p></li>
+</ul>
+<p>Data kemudian diteruskan ke node berikutnya untuk dilakukan pemilihan fitur.</p>
+</section>
+<hr class="docutils" />
+<section id="column-filter">
+<h2>3.2 Column Filter<a class="headerlink" href="#column-filter" title="Link to this heading">#</a></h2>
+<p>Node <strong>Column Filter</strong> digunakan untuk menentukan kolom yang digunakan pada proses K-Means.</p>
+<p>Kolom yang dikeluarkan dari proses perhitungan adalah:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Nama</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Daerah</span></code></p></li>
+</ul>
+<p>Sementara itu, seluruh fitur TSFEL dari CO, SO₂, CH₄, dan NO₂ tetap digunakan.</p>
+<p>Dengan demikian, algoritma K-Means menggunakan <strong>272 fitur TSFEL</strong> sebagai dasar untuk melakukan pengelompokan data.</p>
+</section>
+<hr class="docutils" />
+<section id="k-means">
+<h2>3.3 K-Means<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
+<p>Setelah proses pemilihan fitur selesai, data diproses menggunakan algoritma <strong>K-Means</strong>.</p>
+<p>Pada konfigurasi K-Means digunakan parameter:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Nilai</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Number of clusters</p></td>
+<td><p><strong>2</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>Centroid initialization</p></td>
+<td><p><strong>First k rows</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Maximum number of iterations</p></td>
+<td><p><strong>99</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Jumlah cluster ditentukan sebanyak <strong>2</strong> sehingga data mahasiswa dibagi menjadi dua kelompok berdasarkan kemiripan karakteristik dari fitur TSFEL.
+<img alt="Gambar 5. Workflow pengolahan data menggunakan KNIME" src="_images/gambar-knime.png" /></p>
+<p><strong>Gambar 5. Workflow pengolahan data menggunakan KNIME.</strong></p>
+</section>
+<hr class="docutils" />
+<section id="hasil-clustering">
+<h2>3.4 Hasil Clustering<a class="headerlink" href="#hasil-clustering" title="Link to this heading">#</a></h2>
+<p>Setelah proses K-Means dijalankan, diperoleh dua kelompok data.</p>
+<p>Hasil pengelompokan adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Cluster</p></th>
+<th class="head text-right"><p>Jumlah Data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Cluster 0</p></td>
+<td class="text-right"><p><strong>16</strong></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Cluster 1</p></td>
+<td class="text-right"><p><strong>3</strong></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><strong>Total</strong></p></td>
+<td class="text-right"><p><strong>19</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Hasil tersebut menunjukkan bahwa sebagian besar data berada pada Cluster 0, sedangkan Cluster 1 memiliki jumlah anggota yang lebih sedikit.</p>
+</section>
+<hr class="docutils" />
+<section id="identifikasi-kandidat-outlier">
+<h2>3.5 Identifikasi Kandidat Outlier<a class="headerlink" href="#identifikasi-kandidat-outlier" title="Link to this heading">#</a></h2>
+<p>Berdasarkan hasil clustering, Cluster 1 memiliki jumlah anggota yang lebih sedikit dibandingkan Cluster 0. Oleh karena itu, Cluster 1 digunakan sebagai <strong>kandidat awal data pencilan</strong> yang perlu diperiksa lebih lanjut.</p>
+<p>Dari hasil pengelompokan yang diperoleh, terdapat <strong>3 data</strong> yang masuk ke Cluster 1.</p>
+<p>Ketiga data tersebut adalah:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-right"><p>No.</p></th>
+<th class="head"><p>Nama</p></th>
+<th class="head text-center"><p>Cluster</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-right"><p>1</p></td>
+<td><p>Ahmad Soleh Majid</p></td>
+<td class="text-center"><p>Cluster 1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-right"><p>2</p></td>
+<td><p>Aisya</p></td>
+<td class="text-center"><p>Cluster 1</p></td>
+</tr>
+<tr class="row-even"><td class="text-right"><p>3</p></td>
+<td><p>Muhammad Farhan</p></td>
+<td class="text-center"><p>Cluster 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ketiga data tersebut memiliki karakteristik yang berbeda dari sebagian besar data lainnya sehingga masuk ke kelompok yang lebih kecil.</p>
+<p>Perlu diperhatikan bahwa masuk ke cluster yang jumlah anggotanya sedikit <strong>belum secara otomatis berarti data tersebut merupakan outlier</strong>. Cluster kecil hanya digunakan sebagai indikator awal bahwa terdapat data dengan karakteristik yang berbeda.</p>
+<p>Untuk memastikan data tersebut benar-benar merupakan pencilan, diperlukan pemeriksaan lebih lanjut, misalnya dengan melihat jarak masing-masing data terhadap centroid cluster.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Berdasarkan seluruh proses pengolahan kembali, terdapat perubahan pada metode yang digunakan dibandingkan pengolahan sebelumnya.</p>
+<p>Pada tahap pertama, metode penanganan <em>missing value</em> diubah dari <strong>imputasi linier menjadi imputasi polinomial</strong>. Data CO yang digunakan terdiri dari 365 hari pengamatan dan memiliki nilai kosong pada data awal. Setelah dilakukan imputasi, data hasil pengisian sudah dapat digunakan untuk proses selanjutnya.</p>
+<p>Pada tahap kedua, dataset hasil imputasi polinomial digunakan sebagai input untuk proses ekstraksi fitur menggunakan <strong>TSFEL</strong>. Dari masing-masing polutan diambil 68 fitur sehingga dari empat polutan diperoleh total <strong>272 fitur TSFEL</strong>.</p>
+<p>Pada tahap ketiga, data hasil ekstraksi fitur digunakan untuk proses clustering menggunakan <strong>K-Means pada KNIME</strong>. Dengan menggunakan dua cluster, diperoleh hasil Cluster 0 sebanyak 16 data dan Cluster 1 sebanyak 3 data.</p>
+<p>Cluster 1 kemudian digunakan sebagai <strong>kandidat awal data pencilan</strong> karena memiliki jumlah anggota yang lebih sedikit dibandingkan Cluster 0. Namun, data tersebut belum dapat dinyatakan sebagai outlier secara mutlak hanya berdasarkan jumlah anggota cluster. Diperlukan analisis lanjutan berdasarkan jarak data terhadap centroid untuk memastikan data yang benar-benar merupakan pencilan.</p>
+<section id="alur-keseluruhan">
+<h2>Alur Keseluruhan<a class="headerlink" href="#alur-keseluruhan" title="Link to this heading">#</a></h2>
+<p><strong>Data Awal → Penanganan Missing Value → Polynomial Interpolation → Data Lengkap → Ekstraksi TSFEL → 68 Fitur/Polutan → 272 Fitur → KNIME → Column Filter → K-Means (K=2) → Hasil Clustering → Kandidat Outlier</strong></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Identification%20Area%20of%20Interest%20%28AOI%29.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">1. Identification Area of Interest (AOI)</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">TUGAS 1</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengolahan-data-ekstraksi-fitur-dan-deteksi-outlier">Pengolahan Data, Ekstraksi Fitur, dan Deteksi Outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penanganan-missing-value-imputasi-polinomial">1. Penanganan Missing Value (Imputasi Polinomial)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perubahan-metode">Perubahan Metode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proses-imputasi">Proses Imputasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-penanganan-missing-value">Hasil Penanganan Missing Value</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-fitur">2. Ekstraksi Fitur</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penyesuaian-input-data">Penyesuaian Input Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polutan-yang-digunakan">Polutan yang Digunakan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ekstraksi-68-fitur">Ekstraksi 68 Fitur</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penggabungan-fitur">Penggabungan Fitur</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#deteksi-outlier-knime">3. Deteksi Outlier (KNIME)</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengolahan-kembali">Pengolahan Kembali</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#excel-reader">3.1 Excel Reader</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#column-filter">3.2 Column Filter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">3.3 K-Means</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hasil-clustering">3.4 Hasil Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-kandidat-outlier">3.5 Identifikasi Kandidat Outlier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-keseluruhan">Alur Keseluruhan</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Aisya (240411100025)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
