@@ -1,5 +1,5 @@
 ---
-title: 1. Identification Area of Interest (AOI)
+title: Identification Area of Interest (AOI)
 
 ---
 
