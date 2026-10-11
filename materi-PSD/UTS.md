@@ -3,15 +3,13 @@ title: Untitled
 
 ---
 
-# Laporan Proyek: Klasifikasi Tutupan Lahan Jawa Timur Berbasis Citra Satelit Sentinel-2 dan Algoritma Random Forest
+# UTS = Klasifikasi Tutupan Lahan Jawa Timur Berbasis Citra Satelit Sentinel-2 dan Algoritma Random Forest
 
-> **Mata Kuliah:** Proyek Sains Data
-> **Wilayah Studi:** Jawa Timur Bagian Timur (Kabupaten Banyuwangi dan Sekitarnya)  
-> **Platform & Teknologi:** Python, GeoPandas, Rasterio, Scikit-Learn, Leaflet.js, Sentinel-2 L2A  
-> **Format Dokumentasi:** Markdown Kompatibel HackMD  
 
 ---
 
+
+---
 
 ## 1. Header dan Informasi Proyek
 
@@ -25,32 +23,71 @@ title: Untitled
 | **Jumlah Kelas** | 5 Kelas (*Building, Farmland, Water, Forest, Mangrove*) |
 | **Akurasi Model Uji** | **92,76%** (*Overall Accuracy* pada 152 piksel testing independen) |
 | **Raster Master Final** | `hasil_klasifikasi_jatim_FINAL.tif` (1.186.250 piksel, WGS 84) |
-| **Platform Diseminasi** | WebGIS Statis Interaktif (Leaflet.js, CSS Glassmorphism, Vanilla JS) |
+| **Platform Diseminasi** | WebGIS Statis Interaktif (Leaflet.js) & Dashboard Analitik Python (Streamlit) |
+| **Status Live Demo Streamlit** | 🚀 [**Buka Dashboard Streamlit Publik (Streamlit Cloud)**](https://utspsd-rvcxnt7h3agxnkbylm298z.streamlit.app/) |
+| **Status Live Demo WebGIS** | 🗺️ [**Buka WebGIS Leaflet Publik (GitHub Pages)**](https://aisya08.github.io/UTS_PSD/web/) |
 
 ---
 
 ## 3. Pendahuluan dan Business Understanding
 
-### 3.1 Latar Belakang
-Pemantauan tutupan lahan (*land cover monitoring*) merupakan instrumen mendasar dalam perencanaan tata ruang wilayah, pengelolaan sumber daya alam, perlindungan kawasan konservasi, dan evaluasi ketahanan pangan berkelanjutan. Wilayah timur Provinsi Jawa Timur, khususnya Kabupaten Banyuwangi dan sekitarnya, merepresentasikan bentang alam yang sangat beragam dan kompleks. Wilayah ini memadukan kawasan konservasi hutan hujan tropis pegunungan (Gunung Ijen, Gunung Raung, dan Taman Nasional Meru Betiri), dataran rendah sentra pertanian padi irigasi teknis yang produktif, pusat permukiman perkotaan dan perdesaan, koridor pesisir Selat Bali, hingga ekosistem mangrove di Semenanjung Alas Purwo.
+### 3.1 Latar Belakang dan Konteks Tugas (Pengganti UTS)
+Proyek ini dikembangkan sebagai bagian dari **Tugas Pengganti Ujian Tengah Semester (UTS)** mata kuliah Penginderaan Jauh & Sains Data Spasial. Sasaran utama tugas ini adalah melakukan pemetaan permukaan bumi di wilayah **Jawa Timur** (difokuskan pada bentang alam representatif Kabupaten Banyuwangi dan sekitarnya) menggunakan citra satelit multispektral Sentinel-2 Level-2A (*Bottom of Atmosphere / BOA Surface Reflectance*) dan algoritma *machine learning*.
 
-Citra satelit multispektral Sentinel-2 Level-2A (*Bottom of Atmosphere / BOA Surface Reflectance*) dari European Space Agency (ESA) melalui program Copernicus menyediakan data observasi bumi yang konsisten untuk pemetaan tutupan lahan. Melalui pemanfaatan teknik *machine learning* dan pemrosesan citra digital, proses pemetaan tutupan lahan dapat dilakukan secara terstruktur, terbarukan, dan mencakup area spasial yang luas tanpa harus bergantung sepenuhnya pada survei terestrial berskala penuh yang memakan biaya dan waktu tinggi.
+Dalam penugasan ini, ditekankan pentingnya proses **digitasi ulang (*redigitasi*) poligon sampel *Region of Interest* (ROI)** dalam jumlah yang memadai (*jumlah data harus banyak*) untuk menyusun dataset latih yang berkualitas tinggi hingga menghasilkan model klasifikasi dengan akurasi yang unggul.
 
-### 3.2 Rumusan Masalah
-1. **Tumpang Tindih Spektral Antarkelas (*Spectral Overlap*):** Terjadi kemiripan respon pantulan antara vegetasi alami rimbun (hutan pegunungan) dengan vegetasi budidaya subur (tanaman padi pada fase vegetatif aktif). Selain itu, tanah bera atau lahan kering pada persawahan sering memantulkan spektrum yang serupa dengan material atap seng/beton di kawasan permukiman.
-2. **Anomali Piksel Awan Kumulus dan Bayangan Relief Curam:** Citra optik pada wilayah pegunungan tropis memuat tutupan awan kumulus putih kecil (*popcorn clouds*) dan bayangan topografi yang pekat. Model machine learning berbasis piksel murni yang tidak dilatih pada kelas atmosferik rentan memprediksi awan sebagai bangunan/sawah kering, serta memprediksi bayangan relief sebagai badan air atau mangrove.
-3. **Kesalahan Spasial Ekstrem Hasil Klasifikasi Mentah:** Model *Random Forest* standar yang beroperasi per piksel tanpa kendala spasial (*spatial constraint*) menghasilkan anomali visual yang tidak masuk akal secara geografis, seperti kemunculan piksel permukiman (*Building*) di tengah perairan Selat Bali dan ledakan kelas mangrove di laut lepas terbuka.
+### 3.2 Alur Operasional Bisnis: Ambil - Proses - Klasifikasi - Dapet Informasi
+Proyek ini mengadopsi kerangka kerja sistemik berorientasi luaran dengan alur operasional utama:
 
-### 3.3 Tujuan Proyek
-1. Mengembangkan alur kerja terstruktur untuk ekstraksi fitur multispektral Sentinel-2 L2A menggunakan poligon *Region of Interest* (ROI) berformat GeoJSON.
-2. Melatih dan mengevaluasi model klasifikasi *Random Forest* untuk mengidentifikasi 5 kelas tutupan lahan: *Building, Farmland, Water, Forest,* dan *Mangrove*.
-3. Menganalisis dan menanggulangi anomali spasial hasil prediksi awal (seperti fenomena bangunan di laut, mangrove palsu di air terbuka, serta sawah palsu di lereng gunung) melalui eksperimen perbaikan pascaklasifikasi berbasis aturan spektral dan geomorfologis tanpa mengubah poligon training awal.
-4. Membangun platform diseminasi geospasial berbasis web statis interaktif (HTML, CSS, JavaScript, dan Leaflet.js) yang dapat disematkan langsung (*embeddable*) ke dalam dokumen laporan maupun diakses secara mandiri.
+```mermaid
+flowchart LR
+    A["1. AMBIL<br>Citra Sentinel-2 L2A<br>& Redigitasi GeoJSON"] --> B["2. PROSES<br>Koreksi Reflektansi BOA,<br>Ekstraksi & Topologi"]
+    B --> C["3. KLASIFIKASI<br>Random Forest 5 Kelas<br>(Kombinasi B8A-B11-B04)"]
+    C --> D["4. DAPET INFORMASI<br>Peta Tutupan Lahan,<br>Metrik Luas (Ha/Km²),<br>Diseminasi WebGIS & Streamlit"]
+```
 
-### 3.4 Manfaat
+1. **AMBIL (Data Ingestion & Digitasi):**
+   - Mengambil kanal citra multispektral Sentinel-2 L2A (B03, B04, B08, B8A, B11) tanggal perekaman 6 Oktober 2026.
+   - Melakukan digitasi ulang poligon ROI manual pada 5 kelas tutupan lahan untuk memperkaya jumlah dan keragaman variasi piksel sampel.
+2. **PROSES (Data Preparation & Extraction):**
+   - Memvalidasi topologi dan membersihkan geometri poligon GeoJSON.
+   - Menumpangkan poligon vektor di atas citra satelit dan mengekstrak nilai reflektansi piksel ke dalam dataset tabular `training_pixel.csv` (758 piksel).
+3. **KLASIFIKASI (Model Training & Inference):**
+   - Melatih model *Random Forest Classifier* dengan pembobotan seimbang (*balanced class weight*) dan 200 *estimators*.
+   - Menerapkan inferensi model ke seluruh 1.186.250 piksel citra raster ($1.250 \times 949$).
+   - Menjalankan rangkaian harmonisasi pascaklasifikasi berbasis aturan spektral dan geomorfologis untuk mengeliminasi anomali bangunan di laut lepas dan tutupan awan di puncak gunung.
+4. **DAPET INFORMASI (Actionable Insights & Deployment):**
+   - Memperoleh statistik luasan aktual tutupan lahan (dalam satuan piksel, hektar, dan kilometer persegi).
+   - Menyajikan informasi spasial interaktif melalui WebGIS Leaflet (dengan fitur filter per layer) yang dapat disematkan ke dokumen HackMD, serta aplikasi dashboard analitik interaktif berbasis Python Streamlit.
+
+### 3.3 Rasionalisasi Spektral: Kombinasi Band 8A - 11 - 4 untuk Membedakan Mangrove dan Hutan
+Salah satu tantangan ilmiah utama dalam penugasan ini adalah **membedakan antara ekosistem Hutan Mangrove (*Mangrove*) dengan Hutan Daratan/Pegunungan Biasa (*Forest*)**. Secara visual optik alami (*true color*), kedua kelas ini tampak serupa sebagai vegetasi hijau rimbun. Namun, melalui pemanfaatan **kombinasi spektral Band 8A (Narrow NIR), Band 11 (SWIR-1), dan Band 04 (Red)**, kedua formasi vegetasi tersebut dapat dipisahkan secara tegas:
+
+| Parameter Spektral | Band Sentinel-2 | Respon Hutan Biasa (*Forest*) | Respon Hutan Mangrove (*Mangrove*) | Mekanisme Pemisahan Spektral |
+| :--- | :---: | :--- | :--- | :--- |
+| **Narrow NIR** | **Band 8A** ($865\text{ nm}$) | Pantulan sangat tinggi dari kanopi multi-layer daun kering/sehat. | Pantulan tinggi dari sel mesofil daun mangrove, namun sedikit teredam oleh latar air payau. | Mengidentifikasi struktur kerapatan biomassa kanopi hijau. |
+| **Short-Wave Infrared 1** | **Band 11** ($1610\text{ nm}$) | Pantulan moderat dari biomassa kanopi pohon darat dan tanah kering. | **Serapan sangat kuat (pantulan sangat rendah)** akibat kelembapan ekstrem substrat lumpur basah dan air pasang surut di bawah kanopi. | **Kanal pembeda paling krusial:** Air payau dan lumpur intertidal pada habitat mangrove menyerap radiasi SWIR secara masif. |
+| **Red (Tampak Merah)** | **Band 04** ($665\text{ nm}$) | Serapan klorofil tinggi (pantulan rendah). | Serapan klorofil tinggi dengan pengaruh kekeruhan sedimen pesisir. | Membedakan vegetasi aktif dari material non-vegetasi (tanah terbuka/bangunan). |
+
+Hasil analisis *Feature Importance* membuktikan bahwa kanal **B11 (SWIR-1) menyumbang 33,81%** dan **B8A (Narrow NIR) menyumbang 33,40%** (total kumulatif 67,21%), menegaskan bahwa kombinasi kedua kanal inilah pilar utama keberhasilan model dalam memisahkan mangrove dari hutan darat.
+
+### 3.4 Rumusan Masalah
+1. **Tumpang Tindih Spektral Antarkelas (*Spectral Overlap*):** Kemiripan respon spektral antara vegetasi alami rimbun (hutan pegunungan) dengan tanaman padi pada fase vegetatif aktif, serta kemiripan pantulan tanah bera sawah dengan material atap seng/beton perkotaan.
+2. **Anomali Piksel Awan Kumulus dan Bayangan Relief Curam:** Citra optik memuat awan kumulus putih kecil dan bayangan topografi di lereng Gunung Ijen, Gunung Raung, dan Meru Betiri yang memicu salah prediksi menjadi bangunan atau sawah basah.
+3. **Kesalahan Spasial Ekstrem Hasil Klasifikasi Mentah:** Kemunculan piksel permukiman palsu di tengah perairan laut Selat Bali dan ledakan kelas mangrove di laut lepas terbuka akibat turbiditas air laut dangkal.
+
+### 3.5 Tujuan Proyek
+1. Melakukan digitasi ulang poligon ROI GeoJSON dalam jumlah banyak (60 poligon) untuk 5 kelas tutupan lahan: *Building, Farmland, Water, Forest,* dan *Mangrove*.
+2. Melatih dan mengevaluasi model klasifikasi *Random Forest* dengan kombinasi kanal B04, B08, B8A, dan B11 hingga mencapai akurasi uji tinggi di atas 90%.
+3. Menganalisis dan menanggulangi anomali spasial hasil prediksi mentah melalui filter deterministik (MNDWI, *edge-connected sea mask*, dan *foothill curve*) tanpa mengubah poligon training.
+4. Membangun platform diseminasi ganda:
+   - **WebGIS Statis Leaflet.js:** Peta interaktif mandiri dengan filter checkbox 5 kelas independen, slider transparansi, dan embedded iframe langsung di HackMD.
+   - **Dashboard Streamlit:** Aplikasi analitik interaktif Python yang memvisualisasikan peta, grafik luasan, serta fasilitas upload GeoTIFF mandiri.
+
+### 3.6 Manfaat
 - Menyediakan peta tutupan lahan terintegrasi untuk mendukung inventarisasi Lahan Pertanian Pangan Berkelanjutan (LP2B) di kawasan agraris Banyuwangi.
-- Memberikan gambaran spasial kondisi tutupan kanopi hutan lindung dan kawasan taman nasional (TN Alas Purwo dan TN Meru Betiri).
-- Menjadi studi kasus terapan dalam sains data geospasial yang mendemonstrasikan integrasi antara algoritma machine learning, pemrosesan citra digital, dan diseminasi WebGIS.
+- Memberikan gambaran spasial kondisi tutupan kanopi hutan lindung dan kawasan konservasi mangrove di Semenanjung Alas Purwo.
+- Memenuhi seluruh standar teknis dan kompetensi dalam penugasan Pengganti UTS Sains Data Spasial.
 
 ---
 
@@ -251,7 +288,7 @@ Matriks kebingungan (*confusion matrix*) pada 152 piksel data testing independen
 Kontribusi matematis kanal spektral dalam pohon keputusan (*Gini importance*):
 
 | Peringkat | Fitur Spektral | Karakteristik Kanal | Nilai *Importance* | Kontribusi |
-| :---: | :---: | :--- | :---: | :---: |
+| :--- :---: | :---: | :--- | :---: | :---: |
 | **1** | **B11** | Short-Wave Infrared 1 (SWIR-1 / 1610 nm) | `0.338057` | **33,81%** |
 | **2** | **B8A** | Narrow Near-Infrared (Narrow NIR / 865 nm) | `0.333975` | **33,40%** |
 | **3** | **B04** | Red (665 nm) | `0.165751` | **16,58%** |
@@ -349,11 +386,23 @@ flowchart LR
 
 ### 9.6 Antarmuka Interaktif WebGIS (Embedded Web)
 
-Di bawah ini adalah aplikasi WebGIS tutupan lahan yang disematkan langsung ke dalam dokumen laporan Markdown. **Pengguna dapat langsung berinteraksi (menggeser peta, zoom in/out, mencentang/mematikan 5 kelas tutupan lahan, menggeser slider transparansi, mengganti basemap, serta melihat statistik) langsung di dalam bingkai di bawah ini:**
+> 🚀 **PINTASAN UTAMA EVALUASI DOSEN / PUBLIK (CLOUD DEPLOYMENT):**  
+> Agar dosen atau penilai dapat langsung membuka dan menguji aplikasi web secara daring tanpa perlu menjalankan server di laptop lokal:
+> 
+> - 🌐 **Dashboard Analitik Streamlit Cloud:** 👉 [**KLIK DI SINI UNTUK MEMBUKA STREAMLIT CLOUD**](https://utspsd-rvcxnt7h3agxnkbylm298z.streamlit.app/)  
+> - 🗺️ **WebGIS Multi-Layer Leaflet.js (GitHub Pages):** 👉 [**KLIK DI SINI UNTUK MEMBUKA WEBGIS LEAFLET**](https://aisya08.github.io/UTS_PSD/web/)  
+> *(Status: Aplikasi Streamlit & GitHub Pages telah aktif online dan siap diuji oleh Dosen/Penguji).*
+
+---
+
+
+
+#### Bingkai Interaktif (Khusus Tampilan Platform HackMD.io):
+Di bawah ini adalah aplikasi WebGIS tutupan lahan yang disematkan langsung ke dalam dokumen Markdown. Jika dokumen ini dibuka di [HackMD.io](https://hackmd.io), pengguna dapat langsung berinteraksi (menggeser peta, *zoom*, mencentang/mematikan 5 kelas tutupan lahan, menggeser *slider* transparansi, mengganti basemap, serta melihat tab statistik) langsung di dalam bingkai:
 
 <div style="position: relative; width: 100%; height: 740px; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.35); border: 1px solid #1e293b; margin: 24px 0;">
   <iframe 
-    src="http://localhost:8080" 
+    src="https://aisya08.github.io/UTS_PSD/web/" 
     width="100%" 
     height="100%" 
     frameborder="0" 
@@ -363,13 +412,82 @@ Di bawah ini adalah aplikasi WebGIS tutupan lahan yang disematkan langsung ke da
   </iframe>
 </div>
 
-> 🧭 **Akses Langsung di Tab Baru:**  
-> 👉 [**Buka WebGIS Tutupan Lahan di Tab Baru (http://localhost:8080)**](http://localhost:8080)
-> 
-> *(Catatan Penggunaan: Pastikan server lokal aktif melalui perintah `python -m http.server 8080 --directory web`. Jika laporan ini diunggah ke `hackmd.io`, ganti `http://localhost:8080` pada iframe dengan URL deployment publik seperti GitHub Pages).*
+---
 
+### 9.7 Pengujian di Lingkungan Lokal (Khusus Laptop Pengembang / Offline)
+Jika aplikasi diuji di komputer lokal pengembang secara *offline*:
+1. Buka terminal pada folder proyek.
+2. Jalankan perintah server lokal:
+   ```bash
+   python -m http.server 8080 --directory web
+   ```
+3. Buka peramban (*browser*) pengembang dan akses alamat:
+   `http://localhost:8080` *(Hanya dapat diakses dari laptop pengembang)*.
 
+### 9.8 Dashboard Analitik Streamlit (Alur: Ambil - Proses - Klasifikasi - Dapet Informasi)
+Sebagai pemenuhan instruksi tugas (*"#Di deploy di streamlit - Ambil-proses-klasifikasi-dapet informasi"*), proyek ini menyediakan aplikasi dashboard Python berbasis **Streamlit dan Folium** pada folder `web_klasifikasi_jatim/app.py`.
 
+```mermaid
+flowchart LR
+    A["1. AMBIL<br>Auto-Detect / Upload<br>GeoTIFF Klasifikasi"] --> B["2. PROSES<br>Rasterio Reprojection,<br>Masking & Ekstraksi"]
+    B --> C["3. KLASIFIKASI<br>Peta Folium Interaktif<br>& Layer Poligon GeoJSON"]
+    C --> D["4. DAPET INFORMASI<br>Kalkulasi Hektar/Km²,<br>Grafik Batang & Ekspor CSV"]
+```
+
+#### Rincian Alur Kerja Streamlit:
+1. **Ambil:**
+   - Aplikasi secara otomatis mendeteksi file raster master final `hasil_klasifikasi_jatim_FINAL.tif`.
+   - Menyediakan fitur *drag-and-drop* pengunggahan berkas GeoTIFF mandiri sehingga pengguna dapat menganalisis hasil prediksi raster lainnya.
+2. **Proses:**
+   - Pembacaan metadata raster (dimensi piksel, transform affine, sistem koordinat `EPSG:4326`).
+   - Reproyeksi komputasi matriks piksel ke format array NumPy untuk visualisasi cepat.
+3. **Klasifikasi:**
+   - Visualisasi peta interaktif berbasis library `streamlit-folium`.
+   - Dilengkapi *slider* opasitas dinamis, pilihan basemap (Esri Satellite, CartoDB Positron, OSM), serta opsi overlay poligon GeoJSON training di atas peta.
+4. **Dapet Informasi:**
+   - Menghasilkan kartu metrik instan: total luasan area dalam **Hektar (ha)** dan **Kilometer Persegi (km²)**.
+   - Grafik batang komparasi proporsi tutupan lahan.
+   - Fasilitas ekspor data: tombol unduh tabel ringkasan format **CSV** dan tombol unduh berkas **GeoTIFF**.
+
+#### Status Akses Streamlit:
+- 🌐 **Tautan Daring Publik (Evaluasi Dosen):** 👉 [**Buka Streamlit Cloud**](https://utspsd-rvcxnt7h3agxnkbylm298z.streamlit.app/)
+- 💻 **Pengujian Lokal Pengembang (Offline):**
+  ```powershell
+  python -m streamlit run web_klasifikasi_jatim/app.py
+  ```
+  Akses di komputer pengembang: `http://localhost:8501`
+
+### 9.9 Strategi dan Panduan Deployment Cloud (Jawaban Kebutuhan Tugas UTS)
+
+> 💡 **Pertanyaan Kritis Penugasan:** *"Apakah aplikasi harus di-deploy ke Cloud terlebih dahulu?"*
+
+#### 1. Untuk Lingkungan Lokal (Laptop Pribadi):
+- **Tidak Wajib Deploy Cloud:** Baik WebGIS Leaflet (`http://localhost:8080`) maupun Streamlit (`http://localhost:8501`) dapat dijalankan dan diuji 100% secara fungsional di laptop lokal tanpa koneksi internet ke cloud server.
+
+#### 2. Untuk Pengumpulan Tugas ke Dosen (HackMD & GitHub Online):
+- **Sangat Disarankan Di-deploy ke Cloud Publik:**
+  Ketika laporan ini dipublikasikan secara daring ke platform **HackMD.io** (`https://hackmd.io`) atau dilihat di **GitHub**, browser dosen akan memberlakukan kebijakan keamanan *Mixed Content* (halaman HTTPS memblokir iframe HTTP seperti `http://localhost`). Agar dosen dapat **langsung membuka dan mengklik peta interaktif di dalam catatan Anda**, lakukan deployment cepat berikut:
+
+#### Langkah Deploy WebGIS ke GitHub Pages (1-2 Menit, 100% Gratis):
+1. Inisialisasi dan push folder proyek ke repositori GitHub:
+   ```bash
+   git add web/
+   git commit -m "Deploy WebGIS static"
+   git push origin main
+   ```
+2. Buka repository di GitHub &rarr; Masuk ke menu **Settings** &rarr; **Pages**.
+3. Pada **Build and deployment**, pilih Source: `Deploy from a branch`, pilih branch `main`, dan arahkan folder ke `/ (root)` atau buat branch terpisah untuk folder `web/`.
+4. URL publik akan terbit (contoh: `https://<username>.github.io/<repo>/web/`).
+5. Ganti `URL_WEBGIS_DEPLOYMENT` pada iframe dokumen ini dengan URL GitHub Pages tersebut.
+
+#### Langkah Deploy Dashboard ke Streamlit Community Cloud (Gratis):
+1. Pastikan repository GitHub Anda memuat folder `web_klasifikasi_jatim/` beserta `requirements.txt`.
+2. Masuk ke situs [share.streamlit.io](https://share.streamlit.io) menggunakan akun GitHub Anda.
+3. Klik tombol **New app**, pilih repository Anda, branch `main`, dan tentukan file path:
+   `web_klasifikasi_jatim/app.py`
+4. Klik **Deploy!** Dalam hitungan menit, aplikasi analitik Anda akan memiliki URL publik (misal: `https://klasifikasi-jatim.streamlit.app`).
+
+---
 
 ## 10. Keterbatasan dan Evaluasi Kritis
 
@@ -386,24 +504,8 @@ Raster final `hasil_klasifikasi_jatim_FINAL.tif` merupakan produk perbaikan pasc
 
 ---
 
-## 11. Kesimpulan dan Saran
 
-### 11.1 Kesimpulan
-1. Klasifikasi tutupan lahan wilayah Kabupaten Banyuwangi dan sekitarnya berhasil diimplementasikan menggunakan citra Sentinel-2 L2A (B04, B08, B8A, B11) dengan resolusi efektif $\approx 47{,}5\text{ meter per piksel}$ dan algoritma Random Forest, menghasilkan akurasi data uji sebesar **92,76%**.
-2. Fitur kanal B11 (SWIR-1) sebesar **33,81%** dan B8A (Narrow NIR) sebesar **33,40%** menjadi prediktor paling penting dalam memisahkan badan air, material perkotaan, dan vegetasi.
-3. Eksperimen perbaikan pascaklasifikasi berbasis aturan spektral dan geomorfologis berhasil menanggulangi anomali spasial peta awal tanpa mengubah data training:
-   - Menghilangkan piksel bangunan di laut lepas via *edge-connected sea mask*.
-   - Mereduksi ledakan mangrove di laut terbuka dari 174.511 piksel menjadi 6.984 piksel pada eksperimen pesisir, dan menjadi **5.124 piksel (0,43%)** pada raster harmonisasi akhir.
-   - Merestorasi kawasan hutan pegunungan barat dan Alas Purwo secara solid (**536.945 piksel / 45,26%**) dari gangguan awan kumulus dan bayangan topografi.
-   - Menjaga proporsi lahan pertanian sawah (**440.701 piksel / 37,15%**) dan perkotaan (**97.391 piksel / 8,21%**).
-4. Hasil klasifikasi berhasil didiseminasikan dalam bentuk platform WebGIS statis interaktif berbasis Leaflet.js dengan checkbox 5 kelas independen, slider transparansi dinamis, overlay poligon ROI, serta disematkan langsung (*embeddable iframe*) ke dalam dokumen laporan ini.
 
-### 11.2 Saran Pengembangan Lanjutan
-1. **Prapemrosesan Masking Awan Otomatis:** Mengintegrasikan algoritma deteksi awan otomatis (seperti *s2cloudless* atau *Fmask*) sebelum klasifikasi dilakukan untuk mencegah salah prediksi di puncak pegunungan.
-2. **Integrasi Data Elevasi Digital (DEM):** Memasukkan data ketinggian dan kelerengan (*Digital Elevation Model* seperti DEMNAS atau SRTM 30m) langsung sebagai fitur input model Random Forest agar model dapat membedakan hutan pegunungan dan sawah dataran rendah secara alami.
-3. **Penyampelan Temporal Jamak (*Multi-Temporal Composite*):** Memanfaatkan komposit citra multitemporal lintas musim untuk mengenali siklus dinamika sawah dan vegetasi musiman.
-4. **Survei Validasi Lapangan Independen (*Ground Truth Survey*):** Melakukan pengambilan titik koordinat GPS lapangan untuk menghitung matriks akurasi peta akhir secara definitif.
-5. **Publikasi WebGIS ke Cloud Publik:** Mempublikasikan folder `web/` ke GitHub Pages agar WebGIS dapat diakses publik secara daring tanpa perlu menjalankan server lokal.
 
 ---
 
@@ -442,24 +544,33 @@ klasifikasi_jatim/
 ├── hasil_klasifikasi_jatim_FINAL.tif               # Raster hasil harmonisasi akhir
 │
 ├── laporan-hackmd.md                               # Laporan utama HackMD dengan WebGIS embedded
+├── Untitled.md                                     # Dokumen laporan sinkron untuk upload GitHub
 ├── README.md                                       # Panduan umum proyek repositori
 │
-└── web/                                            # Aplikasi WebGIS Statis Mandiri
-    ├── index.html                                  # Antarmuka web semantik WebGIS
-    ├── css/
-    │   └── style.css                               # Desain modern dark glassmorphism
-    ├── js/
-    │   └── app.js                                  # Logika interaktif peta Leaflet & event
-    ├── data/
-    │   ├── bounds.json                             # Metadata georeferensi & statistik piksel
-    │   └── training_jatim_mangrove_diperkecil_clean.geojson # Data vektor poligon ROI
-    └── assets/
-        ├── building.png                            # Layer PNG transparan Perkotaan (Merah)
-        ├── farmland.png                            # Layer PNG transparan Sawah (Kuning)
-        ├── forest.png                              # Layer PNG transparan Hutan (Hijau)
-        ├── mangrove.png                            # Layer PNG transparan Mangrove (Ungu)
-        ├── water.png                               # Layer PNG transparan Perairan (Biru)
-        └── webgis_preview.png                      # Screenshot antarmuka WebGIS
+├── assets/                                         # Aset visual dokumentasi root
+│   └── webgis_preview.png                          # Tangkapan layar antarmuka WebGIS
+│
+├── web/                                            # Aplikasi WebGIS Statis Mandiri
+│   ├── index.html                                  # Antarmuka web semantik WebGIS
+│   ├── css/
+│   │   └── style.css                               # Desain modern dark glassmorphism
+│   ├── js/
+│   │   └── app.js                                  # Logika interaktif peta Leaflet & event
+│   ├── data/
+│   │   ├── bounds.json                             # Metadata georeferensi & statistik piksel
+│   │   └── training_jatim_mangrove_diperkecil_clean.geojson # Data vektor poligon ROI
+│   └── assets/
+│       ├── building.png                            # Layer PNG transparan Perkotaan (Merah)
+│       ├── farmland.png                            # Layer PNG transparan Sawah (Kuning)
+│       ├── forest.png                              # Layer PNG transparan Hutan (Hijau)
+│       ├── mangrove.png                            # Layer PNG transparan Mangrove (Ungu)
+│       ├── water.png                               # Layer PNG transparan Perairan (Biru)
+│       └── webgis_preview.png                      # Screenshot antarmuka WebGIS
+│
+└── web_klasifikasi_jatim/                          # Aplikasi Dashboard Streamlit + Folium
+    ├── app.py                                      # Kode sumber dashboard analitik Python
+    ├── requirements.txt                            # Dependensi pustaka Python
+    └── README.md                                   # Panduan penggunaan dashboard
 ```
 
 ### 12.2 Panduan Menjalankan Seluruh Pipeline
@@ -484,11 +595,16 @@ python 04_klasifikasi_citra.py
 python 19_restorasi_hutan_pegunungan_barat.py
 ```
 
-#### 5. Menjalankan WebGIS Statis Interaktif Mandiri
+#### 5. Menjalankan WebGIS Statis Interaktif Mandiri (Khusus Laptop Pengembang)
 Jalankan server HTTP lokal di dalam folder `web`:
 ```powershell
 python -m http.server 8080 --directory web
 ```
-Akses di peramban pada alamat:
-`http://localhost:8080`
+Akses di peramban pada alamat: `http://localhost:8080` *(Hanya dapat dibuka di laptop pengembang yang menjalankan server)*.
+
+#### 6. Menjalankan Dashboard Analitik Streamlit (Khusus Laptop Pengembang)
+```powershell
+python -m streamlit run web_klasifikasi_jatim/app.py
+```
+Akses di peramban pada alamat: `http://localhost:8501` *(Hanya dapat dibuka di laptop pengembang yang menjalankan server)*.
 
