@@ -1,9 +1,11 @@
 ---
-title: Untitled
+title: 'UTS = Klasifikasi Tutupan Lahan Jawa Timur Berbasis Citra Satelit Sentinel-2 dan Algoritma Random Forest'
+
 
 ---
 
-# UTS = Klasifikasi Tutupan Lahan Jawa Timur Berbasis Citra Satelit Sentinel-2 dan Algoritma Random Forest
+# UTS 
+## Klasifikasi Tutupan Lahan Jawa Timur Berbasis Citra Satelit Sentinel-2 dan Algoritma Random Forest
 
 
 ---
