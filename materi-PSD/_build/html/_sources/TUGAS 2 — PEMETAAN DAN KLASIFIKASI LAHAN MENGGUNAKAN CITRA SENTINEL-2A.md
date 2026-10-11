@@ -78,7 +78,7 @@ Penentuan AoI dilakukan agar proses pengolahan citra Sentinel-2A dapat difokuska
 
 ### Dokumentasi AoI dan Titik Sampel
 
-![01_titik_sampel_omben](https://hackmd.io/_uploads/ByX-2_esMx.png)
+![Area of Interest dan Titik Sampel](01_titik_sampel_omben.png)
 
 **Gambar 1. Area of Interest dan titik sampel wilayah penelitian**
 
@@ -122,8 +122,7 @@ Pengolahan citra dilakukan menggunakan Google Earth Engine karena platform terse
 
 ### Dokumentasi Citra
 
-![02_citra_sentinel2a_omben](https://hackmd.io/_uploads/Bklmn_giMl.png)
-
+![Citra Sentinel-2A](02_citra_sentinel2a_omben.png)
 
 **Gambar 2. Citra Sentinel-2A pada wilayah penelitian**
 
@@ -206,7 +205,7 @@ Kelas **sawah** digunakan untuk menunjukkan area yang teridentifikasi sebagai la
 
 ### Peta Hasil Klasifikasi
 
-![04_hasil_klasifikasi_omben](https://hackmd.io/_uploads/Skc4aOeofx.png)
+![Hasil Klasifikasi Sawah dan Pemukiman](04_hasil_klasifikasi_omben.png)
 
 
 **Gambar 4. Hasil klasifikasi tutupan lahan sawah dan pemukiman**
