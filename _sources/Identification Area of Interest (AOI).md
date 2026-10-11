@@ -3,7 +3,7 @@ title: 1. Identification Area of Interest (AOI)
 
 ---
 
-# 1. Identification Area of Interest (AOI)
+# Identification Area of Interest (AOI)
 
 ## 1.1 Tujuan
 
